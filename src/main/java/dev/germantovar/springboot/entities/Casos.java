@@ -25,6 +25,7 @@ public class Casos {
 
     private String caso;
     private String descripcion;
+    private String archivo;
     private String fecha_ic;
     private String estado;
     private String fecha_ct;

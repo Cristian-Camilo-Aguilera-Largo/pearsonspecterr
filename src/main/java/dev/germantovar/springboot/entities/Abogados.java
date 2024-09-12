@@ -18,6 +18,11 @@ public class Abogados {
     private String cedula;
     private String telefono;
     private String correo;
-    private String especializacion;
+
+    @OneToOne
+    @JoinColumn(name = "id_especializacion")
+    private Especializacion especializacion;
+
     private String cargo;
+    private String contraseña;
 }
