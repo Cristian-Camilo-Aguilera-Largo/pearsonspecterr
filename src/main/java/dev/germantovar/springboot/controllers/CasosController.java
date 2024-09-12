@@ -8,7 +8,7 @@ import dev.germantovar.springboot.services.ICasosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-
+//parcial
 @RestController
 public class CasosController {
 
