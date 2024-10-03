@@ -1,6 +1,28 @@
 // app.js
 document.addEventListener('DOMContentLoaded', function() {
     const productTableBody = document.getElementById('productTable').querySelector('tbody');
+    const abogadosMap = new Map();
+
+    // Función para obtener los abogados de la API
+    function fetchAbogados() {
+        return fetch('http://localhost:8080/abogados')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Abogados:', data);
+                data.forEach(abogado => {
+                    abogadosMap.set(abogado.id, abogado.nombre); // Guardar el nombre del abogado con su ID
+                });
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation (abogados):', error);
+            });
+    }
+
 
     // Función para obtener los datos de la API
     function fetchProducts() {
@@ -25,9 +47,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function addProductToTable(product) {
         const row = document.createElement('tr');
 
+        //Obtener el nombre del abogado utilizando su ID
+        const abogadoNombre = abogadosMap.get(product.id_abogados) || 'Desconocido';
+        console.log('ID del Abogado en el Producto:', product.id_abogados, 'Nombre del Abogado:', abogadoNombre);
         row.innerHTML = `
             <td>${product.id}</td>
-            <td>${product.abogados}</td>
+            <td>${abogadoNombre}</td>
             <td>${product.caso}</td>
             <td>${product.fecha_ic}</td>
             <td>${product.estado}</td>
@@ -61,5 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Llamada a la función para obtener los productos al cargar la página
-    fetchProducts();
+    fetchAbogados().then(() => {
+        fetchProducts();
+    });
 });

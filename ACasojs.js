@@ -40,15 +40,16 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             
             const seleccion = document.getElementById('seleccion');
-            const abogadoNombre = seleccion.options[seleccion.selectedIndex].text;
+            const abogadoId = parseInt(seleccion.value);
+            console.log('Abogado ID seleccionado:',abogadoId);
 
             const caso = {
-                abogado: abogadoNombre,
                 caso: document.getElementById('Caso').value,
                 descripcion: document.getElementById('Descripcion').value,
                 fecha_ic: document.getElementById('Fecha_ic').value,
                 estado: document.getElementById('Estado').value,
-                fecha_ct: document.getElementById('Fecha_tc').value
+                fecha_ct: document.getElementById('Fecha_tc').value,
+                abogados: {id: abogadoId}
             };
     
             fetch('http://localhost:8080/envio', {
