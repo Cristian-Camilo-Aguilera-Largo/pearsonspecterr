@@ -36,20 +36,19 @@ document.addEventListener('DOMContentLoaded', function() {
     //Subir a la base de datos
     const casoForm = document.getElementById('casoForm');
     if(casoForm) {
-        casoForm.addEventListener('submit', function(event){
+        casoForm.addEventListener('submit', function(event) {
             event.preventDefault();
-            
+
             const seleccion = document.getElementById('seleccion');
-            const abogadoId = parseInt(seleccion.value);
-            console.log('Abogado ID seleccionado:',abogadoId);
+            const abogadoNombre = seleccion.options[seleccion.selectedIndex].text;
 
             const caso = {
+                idAbogado: seleccion.value, // Asegúrate de enviar el ID aquí
                 caso: document.getElementById('Caso').value,
                 descripcion: document.getElementById('Descripcion').value,
                 fecha_ic: document.getElementById('Fecha_ic').value,
                 estado: document.getElementById('Estado').value,
-                fecha_ct: document.getElementById('Fecha_tc').value,
-                abogados: {id: abogadoId}
+                fecha_ct: document.getElementById('Fecha_tc').value
             };
     
             fetch('http://localhost:8080/envio', {

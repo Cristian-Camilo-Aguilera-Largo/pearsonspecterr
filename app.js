@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const row = document.createElement('tr');
 
         //Obtener el nombre del abogado utilizando su ID
-        const abogadoNombre = abogadosMap.get(product.id_abogados) || 'Desconocido';
+        const abogadoNombre = product.abogados ? product.abogados.nombre : 'Desconocido';
         console.log('ID del Abogado en el Producto:', product.id_abogados, 'Nombre del Abogado:', abogadoNombre);
         row.innerHTML = `
             <td>${product.id}</td>
