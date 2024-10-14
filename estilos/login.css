@@ -1,0 +1,137 @@
+/* CSS */
+/* Estilo general del documento */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'roboto',sans-serif;
+}
+
+/* Estilo del elemento body */
+body {
+  background-image: url("../Img/Almacen.jpg");
+  background-size: cover;
+  height: 100vh; /* suponiendo que quieres centrar respecto a todo el alto de la pantalla */
+  width: 100%;
+  display: flex; /* propiedad flexbox */
+  justify-content: center; /* centra el contenido horizontalmente */
+  align-items: center; /* centra el contenido verticalmente */
+}
+
+#filtro-container{
+  background-color: rgba(255, 255, 255, 0.725);
+  height: 100vh; /* suponiendo que quieres centrar respecto a todo el alto de la pantalla */
+  width: 100%;
+  display: flex; /* propiedad flexbox */
+  justify-content: center; /* centra el contenido horizontalmente */
+  align-items: center; /* centra el contenido verticalmente */
+}
+
+/* Estilo del contenedor exterior de la interfaz de login */
+#body-container {
+  width: 470px;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.765);
+  border-radius: 10px;
+
+}
+
+/* Estilo del contenedor principal de la interfaz de login */
+.login-container {
+  margin-top: 8%;
+  width: 410px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+/* Estilo del título de la interfaz de login */
+.login-title {
+  color: #333;
+  font-weight: 500;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* Estilo del formulario de la interfaz de login */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+/* Estilo de los campos de entrada del formulario */
+.login-input {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Estilo de los iconos de los campos de entrada */
+.login-icon {
+  color: #333;
+  font-size: 20px;
+  padding: 10px;
+}
+
+
+
+/* Estilo de los input de los campos de entrada */
+.login-input input {
+  background-color: transparent;
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+/* Estilo del botón de envío del formulario */
+.login-button {
+  margin-top: 10px;
+  width: 80%;
+  height: 40px;
+  border: none;
+  outline: none;
+  background-color: #333;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilo de los enlaces de registro y recuperación de contraseña */
+.login-links {
+  color: #333;
+  width: 80%;
+  display: flex; /* propiedad flexbox */
+  justify-content: space-between; /* centra el contenido horizontalmente */
+  align-items: center; /* centra el contenido verticalmente */
+  margin-left: 40px;
+  margin-top: 15px;
+}
+
+/* Estilo de los enlaces individuales */
+.login-link {
+  color: #333;
+  font-size: 16px;
+  margin-left: 30px;
+  text-decoration: none;
+}
+
+/* Estilo de los enlaces al pasar el cursor */
+.login-link:hover {
+  text-decoration: underline;
+}
+
+.h1{
+  color:#333;
+  size: 10px;
+}
