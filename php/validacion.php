@@ -10,9 +10,9 @@
     $password = $_POST['password'];
 
     // Consulta la base de datos para validar el inicio de sesión
-    $validar_login = mysqli_query($conexion, "SELECT * FROM usuarios WHERE User = '$username' AND Pass = '$password' AND Rol ='1'");
-    $validar_login_a = mysqli_query($conexion, "SELECT * FROM usuarios WHERE User = '$username' AND Pass = '$password' AND Rol = '2'");
-    $validar_login_c = mysqli_query($conexion, "SELECT * FROM usuarios WHERE User = '$username' AND Pass = '$password' AND Rol ='3'");
+    $validar_login = mysqli_query($conexion, "SELECT * FROM usuarios WHERE User = '$username' AND Pass = '$password' AND id_rol ='1'");
+    $validar_login_a = mysqli_query($conexion, "SELECT * FROM usuarios WHERE User = '$username' AND Pass = '$password' AND id_rol = '2'");
+    $validar_login_c = mysqli_query($conexion, "SELECT * FROM usuarios WHERE User = '$username' AND Pass = '$password' AND id_rol ='3'");
 
     if (mysqli_num_rows($validar_login) > 0) {
         // Si se encuentra un registro válido, inicia la sesión y redirige al usuario a la página de bienvenida
