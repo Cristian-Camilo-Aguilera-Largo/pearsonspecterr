@@ -14,6 +14,11 @@ public class Abogados {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuarios usuarios;
+
     private String nombre;
     private String cedula;
     private String telefono;

@@ -6,23 +6,22 @@ import lombok.Setter;
 import lombok.ToString;
 import javax.persistence.*;
 @Entity
-@Table(name = "clientes")
+@Table(name = "usuarios")
 @Setter
 @Getter
 @ToString
 @EqualsAndHashCode
-public class Clientes {
+public class Usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
+    private Long id_usuario;
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuarios usuarios;
+    @JoinColumn(name = "id_rol")
+    private Roles roles;
 
-    private String email;
-    private String nombre;
-    private String apellido;
-    private String telefono;
-
+    private String User;
+    private String Pass;
+    private String Rol;
 }
