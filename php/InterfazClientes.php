@@ -77,6 +77,7 @@ if (!isset($_SESSION['usuario'])) {
                     <tr>
                         <th>Id</th>
                         <th>Abogado</th>
+                        <th>Cliente</th>
                         <th>Caso</th>
                         <th>Fecha Inicio Caso</th>
                         <th>Estado Caso</th>
@@ -139,7 +140,7 @@ if (!isset($_SESSION['usuario'])) {
     </div>
 
     <!-- Incluye el script para cargar los casos -->
-    <script src="ACasojs.js"></script>
+    <script src="../Clientesjs.js"></script>
 </body>
 
 </html>
