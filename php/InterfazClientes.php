@@ -90,7 +90,7 @@ if (!isset($_SESSION['usuario'])) {
         </div>
     </nav>
 </header>
-
+<div class="container mt-4">
 <h2>Lista de Casos</h2>
 <div class="container">
     <input type="hidden" id="clienteId" value="1234"> <!-- Aquí va el ID del cliente -->
@@ -110,6 +110,7 @@ if (!isset($_SESSION['usuario'])) {
         <!-- Los casos se cargarán aquí -->
         </tbody>
     </table>
+</div>
 </div>
 
 <div class="foot">

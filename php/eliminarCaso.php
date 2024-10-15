@@ -83,6 +83,7 @@ if (!isset($_SESSION['usuario'])) {
         </div>
     </nav>
 </header>
+<div class="container mt-4">
 <h2>Eliminar Caso</h2>
 <div class="container">
     <form class="casoForm" id="casoForm">
@@ -94,6 +95,7 @@ if (!isset($_SESSION['usuario'])) {
         <button type="submit" class="btn btn-danger btn-lg boton">Borrar Caso</button>
         </div>
     </form>
+</div>
 </div>
 <div class="foot">
     <footer class="bg-dark text-white pt-4">

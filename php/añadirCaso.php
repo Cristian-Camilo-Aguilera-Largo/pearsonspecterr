@@ -83,12 +83,13 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </nav>
     </header>
+    <div class="container mt-4">
         <h2>Añadir Caso</h2>
         <div class="container">
             <form class="casoForm" id="casoForm">
                 <div class="mb-3">
                     <label for="Abogado" class="form-label">Nombre del Abogado</label>
-                    <select class="form-select" id="Abogado">
+                    <select class="form-select" id="seleccion">
                         <!--Opciones seran llenadas por JavaScript-->
                     </select>
                 </div>
@@ -126,6 +127,7 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
                 <button type="submit" class="btn btn-secondary btn-lg boton">Subir Caso</button>
             </form>
+        </div>
         </div>
         <div class="foot">
             <footer class="bg-dark text-white pt-4">
@@ -173,6 +175,6 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </footer>
         </div>
-        <script src="ACasojs.js"></script>
+        <script src="../ACasojs.js"></script>
     </body>
 </html>

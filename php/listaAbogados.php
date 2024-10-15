@@ -52,6 +52,10 @@ if (!isset($_SESSION['usuario'])) {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
+                      <a class="nav-link active" aria-current="page" href="index.html">Lista de casos</a>
+                      <a class="nav-link" href="añadirCaso.html">Añadir Caso</a>
+                      <a class="nav-link" href="abogados.html">Abogados</a>
+                      <a class="nav-link" href="#">Añadir Abogado</a>
                         <a class="nav-link active" aria-current="page" href="../php/InterfazAdministradores.php">Lista de Casos</a>
                         <a class="nav-link" href="../php/listaClientes.php">Lista Clientes</a>
                         <a class="nav-link" href="../php/listaAbogados.php">Lista Abogados</a>
@@ -89,6 +93,7 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </nav>
     </header>
+    <div class="container mt-4">
         <h2>Abogados</h2>
         <div class="container">
             <table id="productTable">
@@ -107,6 +112,7 @@ if (!isset($_SESSION['usuario'])) {
                     <!-- Aquí se agregarán los productos -->
                 </tbody>
             </table>
+        </div>
         </div>
         <footer class="bg-dark text-white pt-4">
             <div class="container">
