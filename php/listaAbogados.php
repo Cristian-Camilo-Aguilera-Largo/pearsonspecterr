@@ -52,6 +52,10 @@ if (!isset($_SESSION['usuario'])) {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
+                      <a class="nav-link active" aria-current="page" href="index.html">Lista de casos</a>
+                      <a class="nav-link" href="añadirCaso.html">Añadir Caso</a>
+                      <a class="nav-link" href="abogados.html">Abogados</a>
+                      <a class="nav-link" href="#">Añadir Abogado</a>
                         <a class="nav-link active" aria-current="page" href="../php/InterfazAdministradores.php">Lista de Casos</a>
                         <a class="nav-link" href="../php/listaClientes.php">Lista Clientes</a>
                         <a class="nav-link" href="../php/listaAbogados.php">Lista Abogados</a>

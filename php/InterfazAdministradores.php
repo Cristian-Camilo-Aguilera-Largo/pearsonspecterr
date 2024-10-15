@@ -162,7 +162,7 @@ if (!isset($_SESSION['usuario'])) {
         </div>
     </footer>
 </div>
-<script src="app.js"></script>
+<script src="../app.js"></script>
 </body>
 </html>
 

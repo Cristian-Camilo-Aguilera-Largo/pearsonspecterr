@@ -23,5 +23,4 @@ public class Usuarios {
 
     private String User;
     private String Pass;
-    private String Rol;
 }

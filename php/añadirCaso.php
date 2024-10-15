@@ -89,7 +89,7 @@ if (!isset($_SESSION['usuario'])) {
             <form class="casoForm" id="casoForm">
                 <div class="mb-3">
                     <label for="Abogado" class="form-label">Nombre del Abogado</label>
-                    <select class="form-select" id="Abogado">
+                    <select class="form-select" id="seleccion">
                         <!--Opciones seran llenadas por JavaScript-->
                     </select>
                 </div>
@@ -175,6 +175,6 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </footer>
         </div>
-        <script src="ACasojs.js"></script>
+        <script src="../ACasojs.js"></script>
     </body>
 </html>
