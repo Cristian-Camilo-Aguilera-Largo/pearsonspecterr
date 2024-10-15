@@ -11,4 +11,5 @@ public class CasosRequest {
     private String fechaIc;
     private String estado;
     private String fechaCt;
+    private Long idClientes;
 }

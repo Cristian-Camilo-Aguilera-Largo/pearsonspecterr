@@ -62,17 +62,20 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
 
             const seleccion = document.getElementById('seleccion');
+            const seleccionc = document.getElementById('seleccionc');
+            console.log('ID del cliente seleccionado:', seleccionc.value);
             const abogadoNombre = seleccion.options[seleccion.selectedIndex].text;
-
+            const clienteNombre = seleccionc.options[seleccionc.selectedIndex].text;
             const caso = {
                 idAbogado: seleccion.value, // Asegúrate de enviar el ID aquí
                 caso: document.getElementById('Caso').value,
                 descripcion: document.getElementById('Descripcion').value,
                 fecha_ic: document.getElementById('Fecha_ic').value,
                 estado: document.getElementById('Estado').value,
-                fecha_ct: document.getElementById('Fecha_tc').value
+                fecha_ct: document.getElementById('Fecha_tc').value,
+                idClientes: seleccionc.value
             };
-    
+            console.log('ID del cliente a enviar:', caso.idClientes);
             fetch('http://localhost:8080/envio', {
                 method: 'POST',
                 headers: {
