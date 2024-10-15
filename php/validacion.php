@@ -27,15 +27,15 @@ if (mysqli_num_rows($validar_login) > 0) {
     switch ($usuario['id_rol']) {
         case 1:
             // Redirigir a la interfaz de administradores
-            header("location: ../html/InterfazAdministradores.html");
+            header("location: ../php/InterfazAdministradores.php");
             break;
         case 2:
             // Redirigir a la interfaz de abogados
-            header("location: ../html/InterfazAbogados.html");
+            header("location: ../php/InterfazAbogados.php");
             break;
         case 3:
             // Redirigir a la interfaz de clientes
-            header("location: ../html/InterfazClientes.html");
+            header("location: ../php/InterfazClientes.php");
             break;
         default:
             // Redirigir a una página de error o inicio

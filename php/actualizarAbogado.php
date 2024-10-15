@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['usuario'])) {
+    // Si no está autenticado, redirigir a la página de inicio de sesión
+    header('Location: login.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,17 +46,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="InterfazAdministradores.html">Lista de Casos</a>
-                    <a class="nav-link" href="listaClientes.html">Lista Clientes</a>
-                    <a class="nav-link" href="listaAbogados.html">Lista Abogados</a>
+                    <a class="nav-link active" aria-current="page" href="../php/InterfazAdministradores.php">Lista de Casos</a>
+                    <a class="nav-link" href="../php/listaClientes.php">Lista Clientes</a>
+                    <a class="nav-link" href="../php/listaAbogados.php">Lista Abogados</a>
                     <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Casos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="añadirCaso.html">Añadir Caso</a></li>
-                            <li><a class="dropdown-item" href="actualizarCaso.html">Actualizar Caso</a></li>
-                            <li><a class="dropdown-item" href="eliminarCaso.html">Borrar Caso</a></li>
+                            <li><a class="dropdown-item" href="../php/añadirCaso.php">Añadir Caso</a></li>
+                            <li><a class="dropdown-item" href="../php/actualizarCaso.php">Actualizar Caso</a></li>
+                            <li><a class="dropdown-item" href="../php/eliminarCaso.php">Borrar Caso</a></li>
                         </ul>
                     </div>
                     <div class="nav-item dropdown">
@@ -53,12 +64,12 @@
                             Abogados
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="añadirAbogado.html">Añadir Abogado</a></li>
-                            <li><a class="dropdown-item" href="ActualizarAbogado.html">Actualizar Abogado</a></li>
-                            <li><a class="dropdown-item" href="eliminarAbogado.html">Borrar Abogado</a></li>
+                            <li><a class="dropdown-item" href="../php/añadirAbogado.php">Añadir Abogado</a></li>
+                            <li><a class="dropdown-item" href="../php/ActualizarAbogado.php">Actualizar Abogado</a></li>
+                            <li><a class="dropdown-item" href="../php/eliminarAbogado.php">Borrar Abogado</a></li>
                         </ul>
                     </div>
-                    <a class="nav-link" href="CrearAdmin.html">Crear Admin</a>
+                    <a class="nav-link" href="../php/CrearAdmin.php">Crear Admin</a>
                     <!-- Menú de usuario -->
                     <div class="Persona">
                         <img src="../Img/Personas.png" alt="Icono Persona" />
@@ -72,31 +83,64 @@
         </div>
     </nav>
 </header>
-<h2>Añadir Abogado</h2>
-<div class="container">
-    <form class="casoForm" id="casoForm">
-        <div class="mb-3">
-            <label for="Cedula" class="form-label">Numero de Identificacion del Abogado</label>
-            <input type="number" class="form-control" id="Cedula">
+<div class="container mt-4">
+    <h2>Actualizar Abogado</h2>
+
+
+
+    <!-- Contenedor para mostrar y editar datos del caso -->
+    <div class="row">
+        <div class="col-md-6">
+
+        <!-- Seleccionar el caso a actualizar -->
+ <div class="mb-3">
+        <label for="selectCaso" class="form-label">Seleccionar Abogado</label>
+        <select class="form-select" id="selectCaso" onchange="cargarDatosCaso()">
+            <option selected disabled>Seleccione un Abogado</option>
+            <!-- Aquí se deben cargar dinámicamente los casos desde la API o la base de datos -->
+
+        </select>
+    </div>
+
+
+            <h4>Datos Actuales</h4>
+            <div id="datosActuales">
+                <!-- Aquí se mostrarán los datos actuales del caso seleccionado -->
+                <p><strong>Cedula del abogado:</strong> <span id="idActual"></span></p>
+                <p><strong>Nombre del abogado:</strong> <span id="nombreActual"></span></p>
+                <p><strong>Telefono:</strong> <span id="Descripcion"></span></p>
+                <p><strong>Correo:</strong> <span id="fechaActual"></span></p>
+                <p><strong>Cargo:</strong> <span id="estadoActual"></span></p>
+                <!-- Agrega más campos según sea necesario -->
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="Nombre" class="form-label">Nombre del Abogado</label>
-            <input type="text" class="form-control" id="Nombre">
+        <div class="col-md-6">
+            <form id="formActualizarAbogado">
+                <div class="mb-3">
+                    <label for="nuevaCedula" class="form-label">Nueva Cedula del Abogado</label>
+                    <input type="number" class="form-control" id="nuevaCedula" placeholder="Ingrese la nueva cedula">
+                </div>
+                <div class="mb-3">
+                    <label for="nuevoNombre" class="form-label">Nuevo Nombre del Abogado</label>
+                    <textarea type="text" class="form-control" id="nuevoNombre" placeholder="Ingrese el nuevo nombre"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="nuevoTelefono" class="form-label">Nuevo Telefono del Abogado</label>
+                    <input type="number" class="form-control" id="nuevoTelefono" placeholder="Ingrese el nuevo telefono">
+                </div>
+                <div class="mb-3">
+                    <label for="nuevoCorreo" class="form-label">Nuevo Correo del Abogado</label>
+                    <input type="email" class="form-control" id="nuevoCorreo" placeholder="Ingrese el nuevo correo">
+                </div>
+                <div class="mb-3">
+                    <label for="nuevoCargo" class="form-label">Nuevo Cargo del Abogado</label>
+                    <input type="text" class="form-control" id="nuevoCargo" placeholder="Ingrese el nuevo cargo">
+                </div>
+                <!-- Agrega más campos de entrada para otros datos que se puedan actualizar -->
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </form>
         </div>
-        <div class="mb-3">
-            <label for="Telefono" class="form-label">Telefono del Abogado</label>
-            <input type="number" class="form-control" id="Telefono">
-        </div>
-        <div class="mb-3">
-            <label for="Correo" class="form-label">Correo del Abogado</label>
-            <input type="email" class="form-control" id="Correo">
-        </div>
-        <div class="mb-3">
-            <label for="Cargo" class="form-label">Cargo del Abogado</label>
-            <input type="text" class="form-control" id="Cargo">
-        </div>
-        <button type="submit" class="btn btn-secondary btn-lg boton">Añadir Abogado</button>
-    </form>
+    </div>
 </div>
 <div class="foot">
     <footer class="bg-dark text-white pt-4">

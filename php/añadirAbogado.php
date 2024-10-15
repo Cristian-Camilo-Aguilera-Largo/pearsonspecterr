@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['usuario'])) {
+    // Si no está autenticado, redirigir a la página de inicio de sesión
+    header('Location: login.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,17 +46,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="InterfazAdministradores.html">Lista de Casos</a>
-                    <a class="nav-link" href="listaClientes.html">Lista Clientes</a>
-                    <a class="nav-link" href="listaAbogados.html">Lista Abogados</a>
+                    <a class="nav-link active" aria-current="page" href="../php/InterfazAdministradores.php">Lista de Casos</a>
+                    <a class="nav-link" href="../php/listaClientes.php">Lista Clientes</a>
+                    <a class="nav-link" href="../php/listaAbogados.php">Lista Abogados</a>
                     <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Casos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="añadirCaso.html">Añadir Caso</a></li>
-                            <li><a class="dropdown-item" href="actualizarCaso.html">Actualizar Caso</a></li>
-                            <li><a class="dropdown-item" href="eliminarCaso.html">Borrar Caso</a></li>
+                            <li><a class="dropdown-item" href="../php/añadirCaso.php">Añadir Caso</a></li>
+                            <li><a class="dropdown-item" href="../php/actualizarCaso.php">Actualizar Caso</a></li>
+                            <li><a class="dropdown-item" href="../php/eliminarCaso.php">Borrar Caso</a></li>
                         </ul>
                     </div>
                     <div class="nav-item dropdown">
@@ -53,12 +64,12 @@
                             Abogados
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="añadirAbogado.html">Añadir Abogado</a></li>
-                            <li><a class="dropdown-item" href="ActualizarAbogado.html">Actualizar Abogado</a></li>
-                            <li><a class="dropdown-item" href="eliminarAbogado.html">Borrar Abogado</a></li>
+                            <li><a class="dropdown-item" href="../php/añadirAbogado.php">Añadir Abogado</a></li>
+                            <li><a class="dropdown-item" href="../php/ActualizarAbogado.php">Actualizar Abogado</a></li>
+                            <li><a class="dropdown-item" href="../php/eliminarAbogado.php">Borrar Abogado</a></li>
                         </ul>
                     </div>
-                    <a class="nav-link" href="CrearAdmin.html">Crear Admin</a>
+                    <a class="nav-link" href="../php/CrearAdmin.php">Crear Admin</a>
                     <!-- Menú de usuario -->
                     <div class="Persona">
                         <img src="../Img/Personas.png" alt="Icono Persona" />
@@ -72,17 +83,30 @@
         </div>
     </nav>
 </header>
-<h2>Crear Usuario Administrador</h2>
+<h2>Añadir Abogado</h2>
 <div class="container">
     <form class="casoForm" id="casoForm">
         <div class="mb-3">
-            <label for="Abogado" class="form-label">Usuario del Abogado</label>
-            <select class="form-select" id="Abogado">
-                <!--Opciones seran llenadas por JavaScript-->
-            </select>
+            <label for="Cedula" class="form-label">Numero de Identificacion del Abogado</label>
+            <input type="number" class="form-control" id="Cedula">
         </div>
-
-        <button type="submit" class="btn btn-secondary btn-lg boton">Ascender a Administrador</button>
+        <div class="mb-3">
+            <label for="Nombre" class="form-label">Nombre del Abogado</label>
+            <input type="text" class="form-control" id="Nombre">
+        </div>
+        <div class="mb-3">
+            <label for="Telefono" class="form-label">Telefono del Abogado</label>
+            <input type="number" class="form-control" id="Telefono">
+        </div>
+        <div class="mb-3">
+            <label for="Correo" class="form-label">Correo del Abogado</label>
+            <input type="email" class="form-control" id="Correo">
+        </div>
+        <div class="mb-3">
+            <label for="Cargo" class="form-label">Cargo del Abogado</label>
+            <input type="text" class="form-control" id="Cargo">
+        </div>
+        <button type="submit" class="btn btn-secondary btn-lg boton">Añadir Abogado</button>
     </form>
 </div>
 <div class="foot">
