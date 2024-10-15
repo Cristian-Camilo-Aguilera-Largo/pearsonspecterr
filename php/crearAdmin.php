@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['usuario'])) {
+    // Si no está autenticado, redirigir a la página de inicio de sesión
+    header('Location: login.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,16 +46,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="InterfazAdministradores.html">Lista de Casos</a>
-                    <a class="nav-link" href="clientes.html">Lista Clientes</a>
+                    <a class="nav-link active" aria-current="page" href="../php/InterfazAdministradores.php">Lista de Casos</a>
+                    <a class="nav-link" href="../php/listaClientes.php">Lista Clientes</a>
+                    <a class="nav-link" href="../php/listaAbogados.php">Lista Abogados</a>
                     <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Casos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="añadirCaso.html">Añadir Caso</a></li>
-                            <li><a class="dropdown-item" href="ActualizarAbogado.html">Actualizar Caso</a></li>
-                            <li><a class="dropdown-item" href="BorrarAbogado.html">Borrar Caso</a></li>
+                            <li><a class="dropdown-item" href="../php/añadirCaso.php">Añadir Caso</a></li>
+                            <li><a class="dropdown-item" href="../php/actualizarCaso.php">Actualizar Caso</a></li>
+                            <li><a class="dropdown-item" href="../php/eliminarCaso.php">Borrar Caso</a></li>
                         </ul>
                     </div>
                     <div class="nav-item dropdown">
@@ -52,27 +64,36 @@
                             Abogados
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="AñadirAbogado.html">Añadir Abogado</a></li>
-                            <li><a class="dropdown-item" href="ActualizarAbogado.html">Actualizar Abogado</a></li>
-                            <li><a class="dropdown-item" href="BorrarAbogado.html">Borrar Abogado</a></li>
+                            <li><a class="dropdown-item" href="../php/añadirAbogado.php">Añadir Abogado</a></li>
+                            <li><a class="dropdown-item" href="../php/ActualizarAbogado.php">Actualizar Abogado</a></li>
+                            <li><a class="dropdown-item" href="../php/eliminarAbogado.php">Borrar Abogado</a></li>
                         </ul>
                     </div>
-                    <a class="nav-link" href="CrearAdmin.html">Crear Admin</a>
+                    <a class="nav-link" href="../php/CrearAdmin.php">Crear Admin</a>
+                    <!-- Menú de usuario -->
+                    <div class="Persona">
+                        <img src="../Img/Personas.png" alt="Icono Persona" />
+                        <div class="menu-desplegable">
+                            <span style="font-weight:bold ;"> Bienvenido,<?php echo $_SESSION['usuario']; ?></span>
+                            <a href="../php/cerrar_sesion.php">Cerrar sesión</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 </header>
-<h2>Eliminar Abogado</h2>
+<h2>Crear Usuario Administrador</h2>
 <div class="container">
     <form class="casoForm" id="casoForm">
         <div class="mb-3">
-            <label for="AbogadoBorrar" class="form-label">Seleccionar Abogado a Borrar</label>
-            <select class="form-select" id="AbogadoBorrar">
-                <!-- Opciones serán llenadas por JavaScript -->
+            <label for="Abogado" class="form-label">Usuario del Abogado</label>
+            <select class="form-select" id="Abogado">
+                <!--Opciones seran llenadas por JavaScript-->
             </select>
-            <button type="submit" class="btn btn-danger btn-lg boton">Borrar Abogado</button>
         </div>
+
+        <button type="submit" class="btn btn-secondary btn-lg boton">Ascender a Administrador</button>
     </form>
 </div>
 <div class="foot">

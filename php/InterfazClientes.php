@@ -1,9 +1,21 @@
+
+<?php
+session_start();
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['usuario'])) {
+    // Si no está autenticado, redirigir a la página de inicio de sesión
+    header('Location: login.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Productos</title>
+    <title>Lista de Casos</title>
 
     <!-- Conexiones -->
     <link rel="stylesheet" href="../estilos/estilos.css">
@@ -29,12 +41,6 @@
             padding: 8px;
             text-align: left;
         }
-
-        /* CSS para que el dropdown se abra al pasar el mouse */
-        .nav-item.dropdown:hover .dropdown-menu {
-            display: block;
-            margin-top: 0; /* Opcional: para que se alinee con el navbar */
-        }
     </style>
 </head>
 <body>
@@ -47,16 +53,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="InterfazAdministradores.html">Lista de Casos</a>
-                    <a class="nav-link" href="clientes.html">Lista Clientes</a>
+                    <a class="nav-link active" aria-current="page" href="../php/InterfazAdministradores.php">Lista de Casos</a>
+                    <a class="nav-link" href="../php/listaClientes.php">Lista Clientes</a>
+                    <a class="nav-link" href="../php/listaAbogados.php">Lista Abogados</a>
                     <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Casos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="añadirCaso.html">Añadir Caso</a></li>
-                            <li><a class="dropdown-item" href="ActualizarAbogado.html">Actualizar Caso</a></li>
-                            <li><a class="dropdown-item" href="BorrarAbogado.html">Borrar Caso</a></li>
+                            <li><a class="dropdown-item" href="../php/añadirCaso.php">Añadir Caso</a></li>
+                            <li><a class="dropdown-item" href="../php/actualizarCaso.php">Actualizar Caso</a></li>
+                            <li><a class="dropdown-item" href="../php/eliminarCaso.php">Borrar Caso</a></li>
                         </ul>
                     </div>
                     <div class="nav-item dropdown">
@@ -64,12 +71,12 @@
                             Abogados
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="añadirAbogado.html">Añadir Abogado</a></li>
-                            <li><a class="dropdown-item" href="ActualizarAbogado.html">Actualizar Abogado</a></li>
-                            <li><a class="dropdown-item" href="BorrarAbogado.html">Borrar Abogado</a></li>
+                            <li><a class="dropdown-item" href="../php/añadirAbogado.php">Añadir Abogado</a></li>
+                            <li><a class="dropdown-item" href="../php/ActualizarAbogado.php">Actualizar Abogado</a></li>
+                            <li><a class="dropdown-item" href="../php/eliminarAbogado.php">Borrar Abogado</a></li>
                         </ul>
                     </div>
-                    <a class="nav-link" href="CrearAdmin.html">Crear Admin</a>
+                    <a class="nav-link" href="../php/CrearAdmin.php">Crear Admin</a>
                     <!-- Menú de usuario -->
                     <div class="Persona">
                         <img src="../Img/Personas.png" alt="Icono Persona" />
@@ -82,12 +89,11 @@
             </div>
         </div>
     </nav>
-
-
 </header>
 
 <h2>Lista de Casos</h2>
 <div class="container">
+    <input type="hidden" id="clienteId" value="1234"> <!-- Aquí va el ID del cliente -->
     <table id="productTable">
         <thead>
         <tr>
@@ -96,15 +102,16 @@
             <th>Caso</th>
             <th>Fecha Inicio Caso</th>
             <th>Estado Caso</th>
-            <th>Fecha Finalizacion Caso</th>
+            <th>Fecha Finalización Caso</th>
             <th>Ver más...</th>
         </tr>
         </thead>
-        <tbody>
-
+        <tbody id="casosContainer">
+        <!-- Los casos se cargarán aquí -->
         </tbody>
     </table>
 </div>
+
 <div class="foot">
     <footer class="bg-dark text-white pt-4">
         <div class="container">
@@ -125,7 +132,7 @@
                 <div class="col-md-3">
                     <h5>Sobre nosotros</h5>
                     <ul class="list-unstyled">
-                        <li><button type="button" class="btn btn-dark">Politica de tratamiento</button></li>
+                        <li><button type="button" class="btn btn-dark">Política de tratamiento</button></li>
                         <li><button type="button" class="btn btn-dark">lineaetica@pearsonspecter.com</button></li>
                     </ul>
                 </div>
@@ -151,7 +158,8 @@
         </div>
     </footer>
 </div>
-<script src="../app.js"></script>
+
+<!-- Incluye el script para cargar los casos -->
+<script src="ACasojs.js"></script>
 </body>
 </html>
-
