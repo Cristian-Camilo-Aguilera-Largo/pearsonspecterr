@@ -11,38 +11,34 @@ if (!isset($_SESSION['usuario'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lista Abogados</title>
 
-        <!--Conexiones-->
-        <link rel="stylesheet" href="../estilos/estilos.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Caso</title>
 
-        <!--Estilos locales-->
-        <style>
-            table {
-                width: 100%;
-                border-collapse: separate;
-                border-spacing: 0;
-                border-radius: 15px;
-                overflow: hidden;
-            }
+    <!--Conexiones-->
+    <link rel="stylesheet" href="../estilos/estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-            table, th, td {
-                border: 1px solid black;
-            }
+    <!--Estilos locales-->
+    <style>
+        .boton {
+            margin-top: 10px;
+        }
 
-            th, td {
-                padding: 8px;
-                text-align: left;
-            }
-        </style>
-    </head>
-    <body>
+        /* CSS para que el dropdown se abra al pasar el mouse */
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0;
+            /* Opcional: para que se alinee con el navbar */
+        }
+    </style>
+</head>
+
+<body>
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -91,24 +87,28 @@ if (!isset($_SESSION['usuario'])) {
         </nav>
     </header>
     <div class="container mt-4">
-        <h2>Clientes</h2>
+        <h2>Añadir Usuario</h2>
         <div class="container">
-            <table id="productTable">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Email</th>
-                        <th>Telefono</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Aquí se agregarán los productos -->
-                </tbody>
-            </table>
+            <form class="casoForm" id="casoForm">
+                <div class="mb-3">
+                    <label for="User" class="form-label">Correo Usuario</label>
+                    <input type="text" class="form-control" id="User">
+                </div>
+                <div class="mb-3">
+                    <label for="Pass" class="form-label">Contraseña Usuario</label>
+                    <input type="password" class="form-control" id="Pass">
+                </div>
+                <div class="mb-3">
+                    <label for="Rol" class="form-label">Rol</label>
+                    <select class="form-select" id="seleccion">
+                        <!--Opciones seran llenadas por JavaScript-->
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-secondary btn-lg boton">Añadir Usuario</button>
+            </form>
         </div>
-        </div>
+    </div>
+    <div class="foot">
         <footer class="bg-dark text-white pt-4">
             <div class="container">
                 <div class="row">
@@ -153,6 +153,8 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </div>
         </footer>
-        <script src="../listaClientesjs.js"></script>
-    </body>
+    </div>
+    <script src="../anadirUsuariojs.js"></script>
+</body>
+
 </html>

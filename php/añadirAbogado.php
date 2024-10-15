@@ -71,6 +71,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <li><a class="dropdown-item" href="../php/eliminarAbogado.php">Borrar Abogado</a></li>
                             </ul>
                         </div>
+                        <a class="nav-link" href="../php/añadirUsuario.php">Crear Usuario</a>
                         <a class="nav-link" href="../php/CrearAdmin.php">Crear Admin</a>
                         <!-- Menú de usuario -->
                         <div class="Persona">
@@ -104,6 +105,10 @@ if (!isset($_SESSION['usuario'])) {
                 <div class="mb-3">
                     <label for="Correo" class="form-label">Correo del Abogado</label>
                     <input type="email" class="form-control" id="Correo">
+                </div>
+                <div class="mb-3">
+                    <label for="Cargo" class="form-label">Especializacion del abogado</label>
+                    <input type="text" class="form-control" id="Especializacion">
                 </div>
                 <div class="mb-3">
                     <label for="Cargo" class="form-label">Cargo del Abogado</label>
@@ -159,7 +164,7 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </footer>
     </div>
-    <script src="ACasojs.js"></script>
+    <script src="../anadirAbogadosjs.js"></script>
 </body>
 
 </html>

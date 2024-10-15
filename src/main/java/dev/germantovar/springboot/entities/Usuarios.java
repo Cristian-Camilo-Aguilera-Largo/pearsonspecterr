@@ -14,7 +14,6 @@ import javax.persistence.*;
 public class Usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id_usuario;
 
     @ManyToOne

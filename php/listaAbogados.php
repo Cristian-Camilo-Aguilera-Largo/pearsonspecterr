@@ -80,6 +80,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <li><a class="dropdown-item" href="../php/eliminarAbogado.php">Borrar Abogado</a></li>
                             </ul>
                         </div>
+                        <a class="nav-link" href="../php/añadirUsuario.php">Crear Usuario</a>
                         <a class="nav-link" href="../php/CrearAdmin.php">Crear Admin</a>
                         <!-- Menú de usuario -->
                         <div class="Persona">
