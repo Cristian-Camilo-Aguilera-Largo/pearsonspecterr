@@ -18,16 +18,9 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function fetchCasos() {
-    const abogadoId = <?php echo $_SESSION['usuario']['id']; ?>;
-
-    fetch(`http://localhost:8080/casos/${abogadoId}`)
+    fetch('http://localhost:8080/tipificacion1')
         .then(response => response.json())
         .then(casos => {
-            if (!casos || casos.length === 0) {
-                console.error("No hay casos disponibles o la respuesta es incorrecta.");
-                return;
-            }
-
             const tbody = document.querySelector("#casosTable tbody");
             tbody.innerHTML = "";
 
@@ -39,12 +32,11 @@ function fetchCasos() {
                     <td>${caso.estado}</td>
                     <td>${caso.fecha_ic}</td>
                     <td>${caso.fecha_ct}</td>
-                    <td><a href="${caso.archivo}" download>Subir</a></td>
+                    <td>${caso.clientes.nombre}</td>
+                    <td><a href="${caso.archivo}" download>Descargar</a></td>
                 `;
                 tbody.appendChild(row);
             });
         })
         .catch(error => console.error('Error al cargar los casos:', error));
 }
-
-
