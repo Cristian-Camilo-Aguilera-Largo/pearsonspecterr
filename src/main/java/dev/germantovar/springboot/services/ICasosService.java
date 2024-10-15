@@ -1,5 +1,6 @@
 package dev.germantovar.springboot.services;
 import dev.germantovar.springboot.entities.Casos;
+
 import  java.util.List;
 
 public interface ICasosService {

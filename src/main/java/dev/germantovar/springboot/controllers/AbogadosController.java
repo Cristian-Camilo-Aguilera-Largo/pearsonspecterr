@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
+@RequestMapping("/abogados")
 @RestController
 public class AbogadosController {
 
@@ -22,13 +24,16 @@ public class AbogadosController {
     @Autowired
     AbogadosRepository abogadosRepository;
 
-    @GetMapping("abogados")
+    @GetMapping("/abogados")
     public List<Abogados> getAll() {
         return service.getAll();
     }
 
-    @PostMapping("envioabogados")
+    @PostMapping("/envioabogados")
     public void save(@RequestBody Abogados abogados){
         service.save(abogados);
     }
+
+
+
 }
