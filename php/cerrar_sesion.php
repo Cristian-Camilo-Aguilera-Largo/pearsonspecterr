@@ -7,6 +7,6 @@ session_start();
 session_destroy();
 
 // Redirige al usuario a la página "../index.php"
-header("location: ../index.php");
+header("location: ../php/login.php");
 
 ?>

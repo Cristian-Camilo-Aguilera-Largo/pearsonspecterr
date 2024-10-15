@@ -70,10 +70,20 @@
                         </ul>
                     </div>
                     <a class="nav-link" href="CrearAdmin.html">Crear Admin</a>
+                    <!-- Menú de usuario -->
+                    <div class="Persona">
+                        <img src="../Img/Personas.png" alt="Icono Persona" />
+                        <div class="menu-desplegable">
+                            <span style="font-weight:bold ;"> Bienvenido,<?php echo $_SESSION['usuario']; ?></span>
+                            <a href="../php/cerrar_sesion.php">Cerrar sesión</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
+
+
 </header>
 
 <h2>Lista de Casos</h2>

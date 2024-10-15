@@ -72,3 +72,4 @@ if (isset($_SESSION['usuario'])) {
 </body>
 
 </html>
+<script
