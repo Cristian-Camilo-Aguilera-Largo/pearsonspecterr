@@ -160,6 +160,6 @@ if (!isset($_SESSION['usuario'])) {
 </div>
 
 <!-- Incluye el script para cargar los casos -->
-<script src="app.js"></script>
+<script src="ACasojs.js"></script>
 </body>
 </html>
