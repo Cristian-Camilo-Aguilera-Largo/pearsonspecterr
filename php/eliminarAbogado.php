@@ -96,7 +96,7 @@ if (!isset($_SESSION['usuario'])) {
         </div>
     </form>
 </div>
-</
+</div>
 <div class="foot">
     <footer class="bg-dark text-white pt-4">
         <div class="container">
