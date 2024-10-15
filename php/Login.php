@@ -1,14 +1,3 @@
-<?php
-// Inicia la sesión (si aún no está iniciada)
-session_start();
-
-// Verifica si la variable de sesión 'usuario' está definida
-if (isset($_SESSION['usuario'])) {
-  // Redirige al usuario a la página "index.php"
-  header("location: /pearsonspecterr/html/InterfazAbogados.html");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
