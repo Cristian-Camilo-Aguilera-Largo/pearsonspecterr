@@ -89,6 +89,7 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </nav>
     </header>
+    <div class="container mt-4">
         <h2>Abogados</h2>
         <div class="container">
             <table id="productTable">
@@ -107,6 +108,7 @@ if (!isset($_SESSION['usuario'])) {
                     <!-- Aquí se agregarán los productos -->
                 </tbody>
             </table>
+        </div>
         </div>
         <footer class="bg-dark text-white pt-4">
             <div class="container">

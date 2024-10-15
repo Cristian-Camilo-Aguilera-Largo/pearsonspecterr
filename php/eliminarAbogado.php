@@ -83,6 +83,7 @@ if (!isset($_SESSION['usuario'])) {
         </div>
     </nav>
 </header>
+<div class="container mt-4">
 <h2>Eliminar Abogado</h2>
 <div class="container">
     <form class="casoForm" id="casoForm">
@@ -95,6 +96,7 @@ if (!isset($_SESSION['usuario'])) {
         </div>
     </form>
 </div>
+</
 <div class="foot">
     <footer class="bg-dark text-white pt-4">
         <div class="container">
