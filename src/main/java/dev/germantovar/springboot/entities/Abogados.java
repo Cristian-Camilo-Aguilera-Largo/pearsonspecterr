@@ -1,9 +1,12 @@
 package dev.germantovar.springboot.entities;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import javax.persistence.*;
+import java.util.List;
+
 @Entity
 @Table(name = "abogados")
 @Setter
@@ -25,4 +28,10 @@ public class Abogados {
     private String correo;
     private String especializacion;
     private String cargo;
+
+    @OneToMany(mappedBy = "abogados")
+    @JsonManagedReference
+    private List<Clientes> clientes;
+
+
 }

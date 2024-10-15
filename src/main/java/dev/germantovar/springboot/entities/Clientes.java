@@ -1,5 +1,6 @@
 package dev.germantovar.springboot.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,5 +25,10 @@ public class Clientes {
     private String nombre;
     private String apellido;
     private String telefono;
+
+    @ManyToOne
+    @JoinColumn(name = "id_abogado", nullable = false)
+    @JsonBackReference
+    private Abogados abogados;
 
 }
