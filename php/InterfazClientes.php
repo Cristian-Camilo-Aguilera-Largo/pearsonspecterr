@@ -58,40 +58,14 @@ if (!isset($_SESSION['usuario'])) {
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="../php/InterfazAdministradores.php">Lista de Casos</a>
-                        <a class="nav-link" href="../php/listaClientes.php">Lista Clientes</a>
-                        <a class="nav-link" href="../php/listaAbogados.php">Lista Abogados</a>
-                        <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Casos
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="../php/añadirCaso.php">Añadir Caso</a></li>
-                                <li><a class="dropdown-item" href="../php/actualizarCaso.php">Actualizar Caso</a></li>
-                                <li><a class="dropdown-item" href="../php/eliminarCaso.php">Borrar Caso</a></li>
-                            </ul>
                         </div>
-                        <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Abogados
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="../php/añadirAbogado.php">Añadir Abogado</a></li>
-                                <li><a class="dropdown-item" href="../php/ActualizarAbogado.php">Actualizar Abogado</a></li>
-                                <li><a class="dropdown-item" href="../php/eliminarAbogado.php">Borrar Abogado</a></li>
-                            </ul>
-                        </div>
-                        <a class="nav-link" href="../php/CrearAdmin.php">Crear Admin</a>
                         <!-- Menú de usuario -->
                         <div class="Persona">
                             <img src="../Img/Personas.png" alt="Icono Persona" />
-                            <div class="menu-desplegable">
                                 <span style="font-weight:bold ;"> Bienvenido,<?php echo $_SESSION['usuario']; ?></span>
                                 <a href="../php/cerrar_sesion.php">Cerrar sesión</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                </div>
+                                </div>
         </nav>
     </header>
     <div class="container mt-4">
