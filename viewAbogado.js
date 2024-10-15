@@ -32,8 +32,8 @@ function fetchCasos() {
                     <td>${caso.estado}</td>
                     <td>${caso.fecha_ic}</td>
                     <td>${caso.fecha_ct}</td>
-                    <td>${caso.clientes.nombre}</td>
-                    <td><a href="${caso.archivo}" download>Descargar</a></td>
+                    <td>${clientes.nombre}</td>
+                    <td><a href="${caso.archivo}" download>Subir</a></td>
                 `;
                 tbody.appendChild(row);
             });

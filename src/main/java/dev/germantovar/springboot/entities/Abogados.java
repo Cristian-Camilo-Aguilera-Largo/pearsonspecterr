@@ -14,6 +14,7 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 public class Abogados {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,10 +29,6 @@ public class Abogados {
     private String correo;
     private String especializacion;
     private String cargo;
-
-    @OneToMany(mappedBy = "abogados")
-    @JsonManagedReference
-    private List<Clientes> clientes;
 
 
 }

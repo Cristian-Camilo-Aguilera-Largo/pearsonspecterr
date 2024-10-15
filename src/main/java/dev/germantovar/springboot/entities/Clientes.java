@@ -26,9 +26,5 @@ public class Clientes {
     private String apellido;
     private String telefono;
 
-    @ManyToOne
-    @JoinColumn(name = "id_abogado", nullable = false)
-    @JsonBackReference
-    private Abogados abogados;
 
 }
