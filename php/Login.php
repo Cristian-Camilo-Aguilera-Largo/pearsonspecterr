@@ -31,7 +31,7 @@ if (isset($_SESSION['usuario'])) {
       <div class="login-container">
 
         <!-- Formulario de inicio de sesión -->
-        <form class="login-form" action="/pearsonspecterr/html/InterfazAdministradores.html" method="POST">
+        <form class="login-form" action="/pearsonspecterr/php/validacion.php" method="POST">
 
           <!-- Logo de la Empresa -->
           <img style="margin-bottom: 10px" src="Img/Interaseo.png" alt="Logo de la empresa" width="312" height="224" /><br>
