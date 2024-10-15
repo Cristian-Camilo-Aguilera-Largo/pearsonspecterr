@@ -1,45 +1,69 @@
-body {
-    font-family: Arial, sans-serif;
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
 }
 
-header {
-    background-color: #4CAF50;
-    color: white;
+body {
+    background-color: rgb(44, 27, 7);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+}
+
+h2 {
     text-align: center;
-    padding: 1rem;
 }
 
-main {
-    padding: 1rem;
+.navbar {
+    background-color: rgb(190, 205, 197);
 }
 
-form {
-    margin-bottom: 1rem;
+.iconos {
+    margin-top: 10px;
 }
 
-input[type="file"],
-input[type="text"],
-button {
-    margin: 0.5rem;
+.iconos a:not(:first-child) {
+    border-left: 1px solid white;
+    padding-left: 10px;
+    margin-left: 10px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
+.empresa_f {
+    font-size: 1.5rem;
 }
 
-table, th, td {
-    border: 1px solid #dddddd;
+.foot {
+    padding-top: 10px;
 }
 
-th, td {
-    padding: 8px;
-    text-align: left;
+/* Mejorar estilos de la tabla */
+.table {
+    background-color: white;
+    border-radius: 5px;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+.table th {
+    text-align: center;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Estilo para el botón de buscar */
+#searchBtn {
+    margin-top: 10px;
+}
+
+.Persona {
+    color: white;
+    display: flex;
+    align-items: center;
 }

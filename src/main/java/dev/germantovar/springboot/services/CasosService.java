@@ -22,4 +22,6 @@ public class CasosService implements ICasosService {
     public void save(Casos customer){
         repository.save(customer);
     }
+
+
 }

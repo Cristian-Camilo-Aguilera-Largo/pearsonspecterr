@@ -5,6 +5,7 @@ import dev.germantovar.springboot.entities.Abogados; // Asegúrate de importar l
 import dev.germantovar.springboot.entities.Clientes;
 import dev.germantovar.springboot.repository.CasosRepository;
 import dev.germantovar.springboot.repository.AbogadosRepository; // Asegúrate de tener acceso a este repositorio
+import dev.germantovar.springboot.services.CasosService;
 import dev.germantovar.springboot.services.ICasosService;
 import dev.germantovar.springboot.repository.ClientesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,4 +56,17 @@ public class CasosController {
         service.save(caso);
         return ResponseEntity.ok(caso); // Retorna el caso guardado como respuesta
     }
+
+    @GetMapping("/casos/{idAbogado}")
+    public List<Casos> getCasosByAbogado(@PathVariable Long idAbogado) {
+        return casosRepository.findByAbogados_Id(idAbogado);
+    }
+
+
+    @GetMapping("/cliente/{idCliente}")
+    public List<Casos> getCasosByCliente(@PathVariable Long idCliente) {
+        return casosRepository.findByClientes_Id(idCliente);
+    }
+
+
 }
