@@ -159,7 +159,7 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </div>
     </footer>
-    <script src="abogadosjs.js"></script>
+    <script src="../abogadosjs.js"></script>
 </body>
 
 </html>

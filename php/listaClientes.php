@@ -11,34 +11,38 @@ if (!isset($_SESSION['usuario'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista Abogados</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Añadir Caso</title>
+        <!--Conexiones-->
+        <link rel="stylesheet" href="../estilos/estilos.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!--Conexiones-->
-    <link rel="stylesheet" href="../estilos/estilos.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <!--Estilos locales-->
+        <style>
+            table {
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 0;
+                border-radius: 15px;
+                overflow: hidden;
+            }
 
-    <!--Estilos locales-->
-    <style>
-        .boton {
-            margin-top: 10px;
-        }
+            table, th, td {
+                border: 1px solid black;
+            }
 
-        /* CSS para que el dropdown se abra al pasar el mouse */
-        .nav-item.dropdown:hover .dropdown-menu {
-            display: block;
-            margin-top: 0;
-            /* Opcional: para que se alinee con el navbar */
-        }
-    </style>
-</head>
-
-<body>
+            th, td {
+                padding: 8px;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -86,52 +90,24 @@ if (!isset($_SESSION['usuario'])) {
         </nav>
     </header>
     <div class="container mt-4">
-        <h2>Añadir Caso</h2>
+        <h2>Clientes</h2>
         <div class="container">
-            <form class="casoForm" id="casoForm">
-                <div class="mb-3">
-                    <label for="Abogado" class="form-label">Nombre del Abogado</label>
-                    <select class="form-select" id="seleccion">
-                        <!--Opciones seran llenadas por JavaScript-->
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="Cliente" class="form-label">Nombre del Cliente</label>
-                    <select class="form-select" id="seleccionc">
-                        <!--Opciones seran llenadas por JavaScript-->
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="Caso" class="form-label">Titulo del caso</label>
-                    <input type="text" class="form-control" id="Caso" placeholder="Titulo del caso">
-                </div>
-                <div class="mb-3">
-                    <label for="Descripcion" class="form-label">Descripcion del Caso</label>
-                    <textarea class="form-control" id="Descripcion" rows="3" placeholder="Ingrese una descripcion corta del caso"></textarea>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label for="Fecha_ic" class="form-label">Fecha de Inicio del caso</label>
-                        <input type="date" class="form-control" id="Fecha_ic" placeholder="Fecha de Inicio del Caso">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="Estado" class="form-label">Estado</label>
-                        <select class="form-select" id="Estado" onchange="toggleFechaTc()">
-                            <option value="terminado">Terminado</option>
-                            <option value="en_proceso">En Proceso</option>
-                            <option value="anulado">Anulado</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4" id="fechaTcContainer">
-                        <label for="Fecha_tc" class="form-label">Fecha de Terminacion del Caso</label>
-                        <input type="date" class="form-control" id="Fecha_tc">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-secondary btn-lg boton">Subir Caso</button>
-            </form>
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Email</th>
+                        <th>Telefono</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se agregarán los productos -->
+                </tbody>
+            </table>
         </div>
-    </div>
-    <div class="foot">
+        </div>
         <footer class="bg-dark text-white pt-4">
             <div class="container">
                 <div class="row">
@@ -176,8 +152,6 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </div>
         </footer>
-    </div>
-    <script src="../ACasojs.js"></script>
-</body>
-
+        <script src="../Clientesjs.js"></script>
+    </body>
 </html>
