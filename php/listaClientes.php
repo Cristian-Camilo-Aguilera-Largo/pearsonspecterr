@@ -152,6 +152,6 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </div>
         </footer>
-        <script src="../Clientesjs.js"></script>
+        <script src="../listaClientesjs.js"></script>
     </body>
 </html>

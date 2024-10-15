@@ -95,7 +95,7 @@ if (!isset($_SESSION['usuario'])) {
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="selectCaso" class="form-label">Seleccionar Caso</label>
-                    <select class="form-select" id="selectCaso" onchange="cargarDatosCaso()">
+                    <select class="form-select" id="seleccioncaso" onchange="cargarDatosCaso()">
                         <option selected disabled>Seleccione un caso</option>
                         <!-- Aquí se deben cargar dinámicamente los casos desde la API o la base de datos -->
 
@@ -143,7 +143,7 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </div>
     </div>
-
+<!--Footer-->
     <div class="foot">
         <footer class="bg-dark text-white pt-4">
             <div class="container">
@@ -190,7 +190,7 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </footer>
     </div>
-    <script src="ACasojs.js"></script>
+    <script src="../actualizarCasoJs.js"></script>
 </body>
 
 </html>
