@@ -15,6 +15,11 @@ $validar_login = mysqli_query($conexion, "SELECT * FROM usuarios WHERE User = '$
 if (mysqli_num_rows($validar_login) > 0) {
     // Si se encuentra un registro válido, obtiene el rol del usuario
     $usuario = mysqli_fetch_assoc($validar_login);
+
+    // Depuración: Muestra la información del usuario
+    // Puedes comentar o eliminar esta línea después de confirmar que funciona
+    var_dump($usuario);
+
     $_SESSION['usuario'] = $username;  // Guarda el nombre de usuario en la sesión
     $_SESSION['id_rol'] = $usuario['id_rol'];  // Guarda el rol en la sesión
 
