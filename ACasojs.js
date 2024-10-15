@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     //Cargar nombres de abogados al cargar la pagina
-    fetch('http://localhost:8080/abogados')
+    fetch('http://localhost:8080/clientes')
     .then(response => {
         if(!response.ok) {
             throw new Error('Network response was not ok '+ response.statusText);
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return response.json();
     })
     .then(data => {
-        const nombreSelect = document.getElementById('seleccion');
+        const nombreSelect = document.getElementById('seleccionc');
         data.forEach(abogado => {
             const option = document.createElement('option');
             option.value = abogado.id;
