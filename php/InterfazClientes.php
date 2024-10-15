@@ -138,7 +138,9 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </footer>
     </div>
-
+    <script>
+        const idUsuario = <?php echo json_encode($id_usuario); ?>; // Pasar el id_usuario desde PHP a JS
+    </script>
     <!-- Incluye el script para cargar los casos -->
     <script src="../Clientesjs.js"></script>
 </body>
