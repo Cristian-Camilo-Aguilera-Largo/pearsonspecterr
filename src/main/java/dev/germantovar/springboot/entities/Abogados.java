@@ -29,9 +29,7 @@ public class Abogados {
     private String especializacion;
     private String cargo;
 
-    @OneToMany(mappedBy = "abogados")
-    @JsonManagedReference
-    private List<Clientes> clientes;
+
 
 
 }

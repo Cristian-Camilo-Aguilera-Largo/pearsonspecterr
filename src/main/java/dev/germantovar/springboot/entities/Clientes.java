@@ -25,10 +25,4 @@ public class Clientes {
     private String nombre;
     private String apellido;
     private String telefono;
-
-    @ManyToOne
-    @JoinColumn(name = "id_abogado", nullable = false)
-    @JsonBackReference
-    private Abogados abogados;
-
 }
