@@ -1,5 +1,7 @@
 package dev.germantovar.springboot.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,8 +18,14 @@ public class Clientes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
-    private String email;
-    private String nombre;
     private String apellido;
+    private String nombre;
+    private String email;
     private String telefono;
+
+    @ManyToOne
+    @JoinColumn(name = "id_abogado", nullable = false)
+    @JsonBackReference
+    private Abogados abogados;
+
 }
