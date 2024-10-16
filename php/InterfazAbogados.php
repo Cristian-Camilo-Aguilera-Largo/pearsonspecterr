@@ -30,7 +30,7 @@ if (!isset($_SESSION['usuario'])) {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="../php/InterfazAdministradores.php">Lista de Casos</a>
+                        <a class="nav-link active" aria-current="page" href="../php/InterfazAbogados.php">Lista de Casos</a>
                     </div>
                     <div class="Persona ms-auto d-flex align-items-center">
                         <img src="../Img/Personas.png" alt="Icono Persona" class="me-2" />
