@@ -1,6 +1,7 @@
 package dev.germantovar.springboot.controllers;
 
-import dev.germantovar.springboot.entities.*;
+import dev.germantovar.springboot.entities.Usuarios;
+import dev.germantovar.springboot.entities.Roles;
 import dev.germantovar.springboot.repository.RolesRepository;
 import dev.germantovar.springboot.repository.UsuariosRepository;
 import dev.germantovar.springboot.services.IUsuariosService;

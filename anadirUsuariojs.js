@@ -29,11 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const seleccion = document.getElementById('seleccion');
             const caso = {
-                User: document.getElementById('User').value,
-                Pass: document.getElementById('Pass').value,
+                user: document.getElementById('User').value,
+                pass: document.getElementById('Pass').value,
                 idRol: seleccion.value
             };
-            console.log('ID del cliente a enviar:', caso.idRol);
             fetch('http://localhost:8080/enviousuarios', {
                 method: 'POST',
                 headers: {
