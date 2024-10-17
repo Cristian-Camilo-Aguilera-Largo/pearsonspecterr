@@ -99,7 +99,7 @@ public class CasosController {
         }
     }
 
-    private final String fileStorageLocation = "C:\\xampp\\htdocs\\pearsonspecterr\\uploads"; // Cambia esto a tu directorio de archivos
+    private final String fileStorageLocation = "C:\\xampp\\htdocs\\pearsonspecterr\\uploads";
 
     @GetMapping("/files/uploads/{filename:.+}")
     public ResponseEntity<InputStreamResource> downloadFile(@PathVariable String filename) {

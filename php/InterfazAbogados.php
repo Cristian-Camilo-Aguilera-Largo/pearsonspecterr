@@ -140,7 +140,7 @@ if (!isset($_SESSION['usuario'])) {
         function descargarArchivo(filename) {
             const link = document.createElement('a');
             link.href = `http://localhost:8080/files/${filename}`;
-            link.download = filename; // Esto indica que se debe descargar
+            link.download = filename;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -159,7 +159,7 @@ if (!isset($_SESSION['usuario'])) {
                     throw new Error('Error al subir el archivo');
                 }
                 alert("Archivo subido correctamente");
-                fetchCasos(); // Recargar la tabla para mostrar el archivo subido
+                fetchCasos();
             })
             .catch(error => {
                 console.error("Error al subir el archivo:", error);
