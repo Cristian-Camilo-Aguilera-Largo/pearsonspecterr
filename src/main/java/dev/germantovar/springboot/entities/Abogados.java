@@ -17,20 +17,17 @@ public class Abogados {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuarios usuarios;
+
     private String nombre;
-    private String Apellido;
     private String cedula;
     private String telefono;
     private String correo;
-
-    @OneToOne
-    @JoinColumn(name = "id_especializacion")
-    private Especializacion especializacion;
-
-    @OneToMany(mappedBy = "abogados")
-    @JsonManagedReference
-    private List<Clientes> clientes;
-
+    private String especializacion;
     private String cargo;
-    private String contraseña;
+
+
 }
