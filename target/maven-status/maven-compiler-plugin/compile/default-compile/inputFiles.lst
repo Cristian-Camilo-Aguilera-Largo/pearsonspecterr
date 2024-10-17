@@ -17,6 +17,7 @@ C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\entitie
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\repository\AbogadosRepository.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\controllers\UsuariosRequest.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\controllers\CasosRequest.java
+C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\SwaggerConfig\SwaggerConfig.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\controllers\UsuariosController.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\repository\UsuariosRepository.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\services\CasosService.java
