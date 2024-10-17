@@ -28,4 +28,5 @@ public class Casos {
     private String fecha_ic;
     private String estado;
     private String fecha_ct;
+    private String archivo;
 }
