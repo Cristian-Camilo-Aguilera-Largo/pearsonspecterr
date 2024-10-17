@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         //Obtener el nombre del abogado utilizando su ID
         const abogadoNombre = product.abogados ? product.abogados.nombre : 'Desconocido';
+
         console.log('ID del Abogado en el Producto:', product.id_abogados, 'Nombre del Abogado:', abogadoNombre);
         row.innerHTML = `
             <td>${product.id}</td>
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <td>${product.caso}</td>
             <td>${product.fecha_ic}</td>
             <td>${product.estado}</td>
-            <td>${product.fecha_ct}</td>
+            <td>${product.fecha_ct || 'No disponible'}</td>
             <td>
                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     Ver mas...

@@ -23,7 +23,7 @@
         <form class="login-form" action="/pearsonspecterr/php/validacion.php" method="POST">
 
           <!-- Logo de la Empresa -->
-          <img style="margin-bottom: 10px" src="Img/Interaseo.png" alt="Logo de la empresa" width="312" height="224" /><br>
+          <img style="margin-bottom: 10px" src="/pearsonspecterr/Img/Logo.png" alt="Logo de la empresa" width="312" height="224" /><br>
 
           <!-- Campo de entrada para el nombre de usuario o correo electrónico -->
           <div class="login-input">
@@ -37,8 +37,13 @@
 
           <!-- Botón de envío del formulario -->
           <button type="submit" class="login-button">Iniciar sesión</button>
+          <!-- Botón de registro con estilos personalizados -->
         </form>
 
+          <!-- Botón de registro con estilos personalizados -->
+          <a href="/pearsonspecterr/php/registro.php">
+            <button type="button" class="register-button">Registrarse</button>
+          </a>
         <!-- Enlaces de registro y recuperación de contraseña -->
         <div class="login-links">
 
