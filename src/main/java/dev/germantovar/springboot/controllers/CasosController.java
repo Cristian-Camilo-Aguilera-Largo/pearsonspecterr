@@ -24,6 +24,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class CasosController {
@@ -62,6 +63,13 @@ public class CasosController {
         caso.setFecha_ct(casosRequest.getFechaCt());
 
         service.save(caso);
+        return ResponseEntity.ok(caso);
+    }
+
+    @GetMapping("/tipificacion1/{id}")
+    public ResponseEntity<Casos> getCasoById(@PathVariable Long id) {
+        Casos caso = casosRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Caso no encontrado con ID: " + id));
         return ResponseEntity.ok(caso);
     }
 
@@ -122,8 +130,19 @@ public class CasosController {
         }
     }
 
-    @DeleteMapping("tipificacion1/eliminar/{id}")
-    public void remove(@PathVariable String id) {
-        service.remove(Long.parseLong(id)); // No es necesario convertir, ya que es Long
+    @PutMapping("/tipificacion1/{id}")
+    public ResponseEntity<Casos> updateTutorial(@PathVariable("id") long id, @RequestBody Casos casos) {
+        Optional<Casos> casossData = casosRepository.findById(id);
+        if (casossData.isPresent()) {
+            Casos _casoss = casossData.get();
+            _casoss.setDescripcion(casos.getDescripcion());
+            _casoss.setFecha_ic(casos.getFecha_ic());
+            _casoss.setEstado(casos.getEstado());
+            _casoss.setFecha_ct(casos.getFecha_ct());
+            _casoss.setClientes(casos.getClientes());
+            return new ResponseEntity<>(casosRepository.save(_casoss), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }

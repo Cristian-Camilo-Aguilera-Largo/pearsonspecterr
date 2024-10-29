@@ -95,47 +95,56 @@ if (!isset($_SESSION['usuario'])) {
         <!-- Contenedor para mostrar y editar datos del caso -->
         <div class="row g-5">
             <div class="col-md-6 custom-gap">
-                <div class="mb-3">
-                    <label for="selectCaso" class="form-label">Seleccionar Caso</label>
-                    <select class="form-select" id="seleccioncaso" onchange="cargarDatosCaso()">
-                        <option selected disabled>Seleccione un caso</option>
-                        <!-- Aquí se deben cargar dinámicamente los casos desde la API o la base de datos -->
-
-                    </select>
-                </div>
-
-
-                <h4>Datos Actuales</h4>
                 <div id="datosActuales">
-                    <!-- Aquí se mostrarán los datos actuales del caso seleccionado -->
-                    <p><strong>ID del Caso:</strong> <span id="idActual"></span></p>
-                    <p><strong>Titulo del caso:</strong> <span id="nombreActual"></span></p>
-                    <p><strong>Descripcion:</strong> <span id="Descripcion"></span></p>
-                    <p><strong>Fecha de Inicio:</strong> <span id="fechaActual"></span></p>
-                    <p><strong>Estado:</strong> <span id="estadoActual"></span></p>
-                    <p><strong>Fecha de Finalizacion:</strong> <span id="estadoActual"></span></p>
-                    <!-- Agrega más campos según sea necesario -->
+                    <div class="mb-3">
+                        <label for="selectCaso" class="form-label">Seleccionar Caso</label>
+                        <select class="form-select" id="seleccioncaso">
+                            <option selected disabled>Seleccione un caso</option>
+                            <!-- Aquí se deben cargar dinámicamente los casos desde la API o la base de datos -->
+
+                        </select>
+                    </div>
+
+
+                    <h4>Datos Actuales</h4>
+                    <div>
+                        <!-- Aquí se mostrarán los datos actuales del caso seleccionado -->
+                        <p><strong>ID del Caso:</strong> <span id="idActual"></span></p>
+                        <p><strong>Titulo del caso:</strong> <span id="nombreActual"></span></p>
+                        <p><strong>Descripcion:</strong> <span id="Descripcion"></span></p>
+                        <p><strong>Fecha de Inicio:</strong> <span id="fechaActual"></span></p>
+                        <p><strong>Estado:</strong> <span id="estadoActual"></span></p>
+                        <p><strong>Fecha de Finalizacion:</strong> <span id="fechaFinalizacionActual"></span></p>
+                        <!-- Agrega más campos según sea necesario -->
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <form id="formActualizarCaso">
                     <div class="mb-3">
                         <label for="nuevoNombre" class="form-label">Nuevo Nombre del Cliente</label>
-                        <input type="text" class="form-control" id="nuevoNombre" placeholder="Ingrese el nuevo nombre">
+                        <select class="form-select" id="seleccionclientes">
+                            <option selected disabled>Seleccione un cliente</option>
+                            <!--Aquí se deben cargar dinámicamente los nombres de clientes desde la API o la base de datos-->
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="nuevaDescripcion" class="form-label">Nueva descripcion del caso</label>
-                        <textarea class="form-control" id="Descripcion" rows="3" placeholder="Ingrese una descripcion corta del caso"></textarea>
+                        <textarea class="form-control" id="nuevaDescripcion" rows="3" placeholder="Ingrese una descripcion corta del caso"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="nuevaFecha" class="form-label">Nueva Fecha de Inicio</label>
                         <input type="date" class="form-control" id="nuevaFecha">
                     </div>
                     <div class="mb-3">
-                        <label for="nuevoEstado" class="form-label">Nuevo Estado</label>
-                        <input type="text" class="form-control" id="nuevoEstado" placeholder="Ingrese el nuevo estado">
+                    <label for="Estado" class="form-label">Estado</label>
+                        <select class="form-select" id="nuevoEstado" onchange="toggleFechaTc()">
+                            <option value="terminado">Terminado</option>
+                            <option value="en_proceso">En Proceso</option>
+                            <option value="anulado">Anulado</option>
+                        </select>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3" id="fechaTcContainer">
                         <label for="nuevaFechaFin" class="form-label">Nueva Fecha de Fin</label>
                         <input type="date" class="form-control" id="nuevaFechaFin">
                     </div>
