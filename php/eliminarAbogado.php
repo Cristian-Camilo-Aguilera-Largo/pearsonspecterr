@@ -91,10 +91,11 @@ if (!isset($_SESSION['usuario'])) {
         <div class="container">
             <form class="casoForm" id="casoForm">
                 <div class="mb-3">
-                    <label for="AbogadoBorrar" class="form-label">Seleccionar Abogado a Borrar</label>
-                    <select class="form-select" id="seleccion">
-                        <!-- Opciones serán llenadas por JavaScript -->
-                    </select>
+                    <label for="BorrarAbogado" class="form-label">Nombre del Abogado</label>
+                      <select class="form-select" id="seleccion">
+                      <option selected disabled>Seleccione un abogado</option>
+                      <!--Opciones seran llenadas por JavaScript-->
+                      </select>
                     <button type="submit" class="btn btn-danger btn-lg boton">Borrar Abogado</button>
                 </div>
             </form>
@@ -145,7 +146,7 @@ if (!isset($_SESSION['usuario'])) {
                        </div>
                </footer>
            </div>
-    <script src="ACasojs.js"></script>
+    <script src="../eliminarAbogado.js"></script>
 </body>
 
 </html>

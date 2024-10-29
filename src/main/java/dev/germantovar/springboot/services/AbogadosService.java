@@ -22,4 +22,9 @@ public class AbogadosService implements IAbogadosService {
     public void save(Abogados abogados){
         repository.save(abogados);
     }
+
+    @Override
+    public void remove(Long id) {
+        repository.deleteById(id);
+    }
 }

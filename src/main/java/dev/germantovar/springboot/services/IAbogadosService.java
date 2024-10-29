@@ -6,4 +6,6 @@ public interface IAbogadosService {
     List<Abogados> getAll();
 
     void save(Abogados abogados);
+
+    void remove(Long parseLong);
 }

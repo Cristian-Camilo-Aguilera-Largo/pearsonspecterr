@@ -91,10 +91,12 @@ if (!isset($_SESSION['usuario'])) {
         <div class="container">
             <form class="casoForm" id="casoForm">
                 <div class="mb-3">
-                    <label for="CasoBorrar" class="form-label">Seleccionar Caso a Borrar</label>
-                    <select class="form-select" id="CasoBorrar">
-                        <!-- Opciones serán llenadas por JavaScript -->
-                    </select>
+                    <label for="selectCaso" class="form-label">Seleccionar Caso</label>
+                     <select class="form-select" id="seleccioncaso" onchange="cargarDatosCaso()">
+                     <option selected disabled>Seleccione un caso</option>
+                     <!-- Aquí se deben cargar dinámicamente los casos desde la API o la base de datos -->
+
+                     </select>
                     <button type="submit" class="btn btn-danger btn-lg boton">Borrar Caso</button>
                 </div>
             </form>
@@ -145,7 +147,7 @@ if (!isset($_SESSION['usuario'])) {
                        </div>
                </footer>
            </div>
-    <script src="ACasojs.js"></script>
+    <script src="../eliminarCaso.js"></script>
 </body>
 
 </html>

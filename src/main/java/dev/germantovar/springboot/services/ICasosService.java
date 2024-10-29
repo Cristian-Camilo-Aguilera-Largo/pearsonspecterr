@@ -6,4 +6,6 @@ public interface ICasosService {
     List<Casos> getAll();
 
     void save(Casos casos);
+
+    void remove(Long parseLong);
 }

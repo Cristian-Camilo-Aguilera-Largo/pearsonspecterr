@@ -31,4 +31,9 @@ public class AbogadosController {
     public void save(@RequestBody Abogados abogados){
         service.save(abogados);
     }
+
+    @DeleteMapping("envioabogados/eliminar/{id}")
+    public void remove(@PathVariable String id) {
+        service.remove(Long.parseLong(id)); // No es necesario convertir, ya que es Long
+    }
 }

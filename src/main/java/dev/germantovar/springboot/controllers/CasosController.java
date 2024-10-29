@@ -121,4 +121,9 @@ public class CasosController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+    @DeleteMapping("tipificacion1/eliminar/{id}")
+    public void remove(@PathVariable String id) {
+        service.remove(Long.parseLong(id)); // No es necesario convertir, ya que es Long
+    }
 }

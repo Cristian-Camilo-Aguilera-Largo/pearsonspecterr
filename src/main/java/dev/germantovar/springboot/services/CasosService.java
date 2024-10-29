@@ -23,5 +23,8 @@ public class CasosService implements ICasosService {
         repository.save(customer);
     }
 
-
+    @Override
+    public void remove(Long id) {
+            repository.deleteById(id);
+    }
 }
