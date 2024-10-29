@@ -1,48 +1,144 @@
-html, body{
+html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    
 }
 
-body{
-    background-color: rgb(44, 27, 7);
+body {
+    background-color: #f4f4f4;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
+    font-family: Arial, sans-serif;
+    color: #333;
 }
 
-
-.container{
+.container {
+    display: flex;
     align-items: center;
     flex: 1;
+    padding: 20px;
+    flex-direction: column;
 }
 
-h2{
+h2 {
     text-align: center;
-    
+    color: #005e54; /* Verde azulado del logo */
+    font-weight: bold;
 }
 
-.navbar{
-    background-color: rgb(190, 205, 197);
+.navbar {
+    background-color: #208d84; /* Verde azulado */
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 }
 
-.iconos{
+/* Estilo de los enlaces en el navbar */
+.navbar .navbar-nav .nav-link {
+    color: #ffffff; /* Blanco */
+    font-weight: 500;
+    padding: 0.5rem 1rem; /* Añade espaciado alrededor de los enlaces */
+    transition: color 0.3s, background-color 0.3s; /* Suaviza la transición */
+}
+
+/* Estilo cuando pasas el cursor sobre los enlaces */
+.navbar .navbar-nav .nav-link:hover {
+    background-color: #004d40; /* Un verde más oscuro */
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+/* Estilo del enlace activo */
+.navbar .navbar-nav .nav-link.active {
+    background-color: #004d40;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+/* Cambios para el menú desplegable */
+.navbar .dropdown-menu {
+    background-color: #00796b; /* Mismo color de fondo que el navbar */
+    border: none;
+}
+
+.navbar .dropdown-item {
+    color: #ffffff;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.navbar .dropdown-item:hover {
+    background-color: #004d40;
+    color: #ffffff;
+}
+
+/* Ajuste del botón de menú en pantallas pequeñas */
+.navbar-toggler {
+    border-color: #ffffff; /* Blanco */
+}
+
+.navbar-toggler-icon {
+    background-color: #ffffff; /* Blanco */
+    border-radius: 5px;
+}
+
+.iconos {
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
-.iconos a:not(:first-child){
-    border-left: 1px solid white;
-    padding-left: 10px;
-    margin-left: 10px;
+.iconos a {
+    color: #005e54;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    transition: color 0.3s ease;
 }
 
-.empresa_f{
+.iconos a:hover {
+    color: #d4af37; /* Dorado para el efecto hover */
+}
+
+.empresa_f {
     font-size: 1.5rem;
+    color: #005e54;
+    font-weight: bold;
+    text-align: center;
 }
 
-.foot{
-    padding-top: 10px;
+.foot {
+    background-color: #333; /* Fondo oscuro */
+    color: #d4af37; /* Texto dorado */
+    text-align: center;
+    font-size: 0.9rem;
+    position: relative;
+    padding-bottom: 20px;
+    margin: 0; /* Agrega esta línea */
+        padding: 0; /* Agrega esta línea */
+}
+
+
+.copyright {
+    position: absolute;
+    bottom: 15px; /* Ajusta este valor para moverlo hacia arriba o abajo */
+    width: 100%;
+    font-size: 12px;
+    color: #777;
+}
+
+.Persona {
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+.Persona img {
+    width: 30px; /* Ajusta el ancho deseado */
+    height: 30px; /* Ajusta el alto deseado */
+    object-fit: cover; /* Asegura que la imagen no se deforme */
+    border-radius: %70; /* Hace que el icono tenga bordes redondeados */
 }

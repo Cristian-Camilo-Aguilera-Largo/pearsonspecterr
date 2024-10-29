@@ -64,7 +64,7 @@ if (!isset($_SESSION['usuario'])) {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="../php/InterfazAdministradores.php">Lista de Casos</a>
+                        <a class="nav-link" aria-current="page" href="../php/InterfazAdministradores.php">Lista de Casos</a>
                         <a class="nav-link" href="../php/listaClientes.php">Lista Clientes</a>
                         <a class="nav-link" href="../php/listaAbogados.php">Lista Abogados</a>
                         <div class="nav-item dropdown">
@@ -89,24 +89,24 @@ if (!isset($_SESSION['usuario'])) {
                         </div>
                         <a class="nav-link" href="../php/añadirUsuario.php">Crear Usuario</a>
                         <a class="nav-link" href="../php/CrearAdmin.php">Crear Admin</a>
-                        <!-- Menú de usuario -->
-                        <div class="Persona">
-                            <img src="../Img/Personas.png" alt="Icono Persona" />
-                            <div class="menu-desplegable">
-                                <span style="font-weight:bold ;"> Bienvenido,<?php echo $_SESSION['usuario']; ?></span>
-                                <a href="../php/cerrar_sesion.php">Cerrar sesión</a>
-                            </div>
-                        </div>
+                    </div>
+
+                    <!-- Div Persona ubicado fuera de navbar-nav y con ms-auto para alinearse a la derecha -->
+                    <div class="Persona ms-auto d-flex align-items-center">
+                        <img src="../Img/Personas.png" alt="Icono Persona" class="me-2" />
+                        <span class="text-black" style="font-weight:bold;">Bienvenido, <?php echo $_SESSION['usuario']; ?></span>
+                        <a href="../php/cerrar_sesion.php" class="btn btn-danger ms-3">Cerrar sesión</a>
                     </div>
                 </div>
+
             </div>
         </nav>
     </header>
     <div class="container mt-4">
         <h2>Lista de Casos</h2>
         <div class="container">
-            <table id="productTable">
-                <thead>
+            <table id="productTable" class="table table-striped table-bordered">
+                <thead class="table-dark">
                     <tr>
                         <th>Id</th>
                         <th>Abogado</th>
@@ -162,11 +162,10 @@ if (!isset($_SESSION['usuario'])) {
                         </ul>
                     </div>
                 </div>
-                <hr class="bg-white">
-                <div class="text-center py-3">
+                </div>
+                <div class="copyright">
                     © 2024 Pearson Specter
                 </div>
-            </div>
         </footer>
     </div>
     <script src="../app.js"></script>

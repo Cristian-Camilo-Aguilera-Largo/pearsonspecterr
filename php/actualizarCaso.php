@@ -35,65 +35,66 @@ if (!isset($_SESSION['usuario'])) {
             margin-top: 0;
             /* Opcional: para que se alinee con el navbar */
         }
+
+        .custom-gap {
+                padding-right: 200px; /* Ajusta el valor según necesites */
+            }
     </style>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><strong>Pearson Specter</strong></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="../php/InterfazAdministradores.php">Lista de Casos</a>
-                        <a class="nav-link" href="../php/listaClientes.php">Lista Clientes</a>
-                        <a class="nav-link" href="../php/listaAbogados.php">Lista Abogados</a>
-                        <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Casos
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="../php/añadirCaso.php">Añadir Caso</a></li>
-                                <li><a class="dropdown-item" href="../php/actualizarCaso.php">Actualizar Caso</a></li>
-                                <li><a class="dropdown-item" href="../php/eliminarCaso.php">Borrar Caso</a></li>
-                            </ul>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Abogados
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="../php/añadirAbogado.php">Añadir Abogado</a></li>
-                                <li><a class="dropdown-item" href="../php/ActualizarAbogado.php">Actualizar Abogado</a></li>
-                                <li><a class="dropdown-item" href="../php/eliminarAbogado.php">Borrar Abogado</a></li>
-                            </ul>
-                        </div>
-                        <a class="nav-link" href="../php/añadirUsuario.php">Crear Usuario</a>
-                        <a class="nav-link" href="../php/CrearAdmin.php">Crear Admin</a>
-                        <!-- Menú de usuario -->
-                        <div class="Persona">
-                            <img src="../Img/Personas.png" alt="Icono Persona" />
-                            <div class="menu-desplegable">
-                                <span style="font-weight:bold ;"> Bienvenido,<?php echo $_SESSION['usuario']; ?></span>
-                                <a href="../php/cerrar_sesion.php">Cerrar sesión</a>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html"><strong>Pearson Specter</strong></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-link" aria-current="page" href="../php/InterfazAdministradores.php">Lista de Casos</a>
+                            <a class="nav-link" href="../php/listaClientes.php">Lista Clientes</a>
+                            <a class="nav-link" href="../php/listaAbogados.php">Lista Abogados</a>
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Casos
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="../php/añadirCaso.php">Añadir Caso</a></li>
+                                    <li><a class="dropdown-item" href="../php/actualizarCaso.php">Actualizar Caso</a></li>
+                                    <li><a class="dropdown-item" href="../php/eliminarCaso.php">Borrar Caso</a></li>
+                                </ul>
                             </div>
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Abogados
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="../php/añadirAbogado.php">Añadir Abogado</a></li>
+                                    <li><a class="dropdown-item" href="../php/ActualizarAbogado.php">Actualizar Abogado</a></li>
+                                    <li><a class="dropdown-item" href="../php/eliminarAbogado.php">Borrar Abogado</a></li>
+                                </ul>
+                            </div>
+                            <a class="nav-link" href="../php/añadirUsuario.php">Crear Usuario</a>
+                            <a class="nav-link" href="../php/CrearAdmin.php">Crear Admin</a>
+                        </div>
+
+                        <!-- Div Persona ubicado fuera de navbar-nav y con ms-auto para alinearse a la derecha -->
+                        <div class="Persona ms-auto d-flex align-items-center">
+                            <img src="../Img/Personas.png" alt="Icono Persona" class="me-2" />
+                            <span class="text-black" style="font-weight:bold;">Bienvenido, <?php echo $_SESSION['usuario']; ?></span>
+                            <a href="../php/cerrar_sesion.php" class="btn btn-danger ms-3">Cerrar sesión</a>
                         </div>
                     </div>
+
                 </div>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </header>
     <div class="container mt-4">
         <h2>Actualizar Caso</h2>
-        <!-- Seleccionar el caso a actualizar -->
-
-
         <!-- Contenedor para mostrar y editar datos del caso -->
-        <div class="row">
-            <div class="col-md-6">
+        <div class="row g-5">
+            <div class="col-md-6 custom-gap">
                 <div class="mb-3">
                     <label for="selectCaso" class="form-label">Seleccionar Caso</label>
                     <select class="form-select" id="seleccioncaso" onchange="cargarDatosCaso()">
@@ -146,51 +147,50 @@ if (!isset($_SESSION['usuario'])) {
     </div>
 <!--Footer-->
     <div class="foot">
-        <footer class="bg-dark text-white pt-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <h5 class="empresa_f">Pearson Specter</h5>
-                        <ul class="list-unstyled">
-                            <li>Síguenos</li>
-                            <li class="iconos">
-                                <a href="#" class="text-white"><i class="bi bi-whatsapp"></i></a>
-                                <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
-                                <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
-                                <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
-                                <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <h5>Sobre nosotros</h5>
-                        <ul class="list-unstyled">
-                            <li><button type="button" class="btn btn-dark">Politica de tratamiento</button></li>
-                            <li><button type="button" class="btn btn-dark">lineaetica@pearsonspecter.com</button></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <h5>Se parte de Pearson Specter</h5>
-                        <ul class="list-unstyled">
-                            <li><button type="button" class="btn btn-dark">Trabaja con nosotros</button></li>
-                            <li><button type="button" class="btn btn-dark">trabajo@pearsonspecter.com</button></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <h5>Contacto</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white">321 3214321</a></li>
-                            <li><a href="#" class="text-white">atencionalcliente@pearsonspecter.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <hr class="bg-white">
-                <div class="text-center py-3">
-                    © 2024 Pearson Specter
-                </div>
-            </div>
-        </footer>
-    </div>
+               <footer class="bg-dark text-white pt-4">
+                   <div class="container">
+                       <div class="row">
+                           <div class="col-md-3">
+                               <h5 class="empresa_f">Pearson Specter</h5>
+                               <ul class="list-unstyled">
+                                   <li>Síguenos</li>
+                                   <li class="iconos">
+                                       <a href="#" class="text-white"><i class="bi bi-whatsapp"></i></a>
+                                       <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
+                                       <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                                       <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+                                       <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                                   </li>
+                               </ul>
+                           </div>
+                           <div class="col-md-3">
+                               <h5>Sobre nosotros</h5>
+                               <ul class="list-unstyled">
+                                   <li><button type="button" class="btn btn-dark">Politica de tratamiento</button></li>
+                                   <li><button type="button" class="btn btn-dark">lineaetica@pearsonspecter.com</button></li>
+                               </ul>
+                           </div>
+                           <div class="col-md-3">
+                               <h5>Se parte de Pearson Specter</h5>
+                               <ul class="list-unstyled">
+                                   <li><button type="button" class="btn btn-dark">Trabaja con nosotros</button></li>
+                                   <li><button type="button" class="btn btn-dark">trabajo@pearsonspecter.com</button></li>
+                               </ul>
+                           </div>
+                           <div class="col-md-3">
+                               <h5>Contacto</h5>
+                               <ul class="list-unstyled">
+                                   <li><a href="#" class="text-white">321 3214321</a></li>
+                                   <li><a href="#" class="text-white">atencionalcliente@pearsonspecter.com</a></li>
+                               </ul>
+                           </div>
+                       </div>
+                       </div>
+                       <div class="copyright">
+                           © 2024 Pearson Specter
+                       </div>
+               </footer>
+           </div>
     <script src="../actualizarCasoJs.js"></script>
 </body>
 
