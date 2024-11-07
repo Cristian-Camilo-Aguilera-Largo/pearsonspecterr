@@ -137,7 +137,7 @@ if (!isset($_SESSION['usuario'])) {
                    <div class="container">
                        <div class="row">
                            <div class="col-md-3">
-                               <h5 class="empresa_f">Valbuen Abogados</h5>
+                               <h5 class="empresa_f">ValbuenAbogados</h5>
                                <ul class="list-unstyled">
                                    <li>Síguenos</li>
                                    <li class="iconos">
@@ -157,7 +157,7 @@ if (!isset($_SESSION['usuario'])) {
                                </ul>
                            </div>
                            <div class="col-md-3">
-                               <h5>Se parte de Valbuen Abogados</h5>
+                               <h5>Se parte de ValbuenAbogados</h5>
                                <ul class="list-unstyled">
                                    <li><button type="button" class="btn btn-dark">Trabaja con nosotros</button></li>
                                    <li><button type="button" class="btn btn-dark">trabajo@ValbuenAbogados.com</button></li>
@@ -173,7 +173,7 @@ if (!isset($_SESSION['usuario'])) {
                        </div>
                        </div>
                        <div class="copyright">
-                           © 2024 Valbuen Abogados
+                           © 2024 ValbuenAbogados
                        </div>
                </footer>
            </div>
