@@ -55,7 +55,7 @@ public class AbogadosController {
         }
     }
 
-    @DeleteMapping("envioabogados/eliminar/{id}")
+    @DeleteMapping("/envioabogados/eliminar/{id}")
     public void remove(@PathVariable String id) {
         service.remove(Long.parseLong(id)); // No es necesario convertir, ya que es Long
     }
