@@ -82,7 +82,6 @@ if (!isset($_SESSION['usuario'])) {
                             <a href="../php/cerrar_sesion.php" class="btn btn-danger ms-3">Cerrar sesión</a>
                         </div>
                     </div>
-
                 </div>
             </nav>
         </header>
@@ -92,7 +91,7 @@ if (!isset($_SESSION['usuario'])) {
             <form class="casoForm" id="casoForm">
                 <div class="mb-3">
                     <label for="selectCaso" class="form-label">Seleccionar Caso</label>
-                     <select class="form-select" id="seleccioncaso" onchange="cargarDatosCaso()">
+                     <select class="form-select" id="seleccioncaso">
                      <option selected disabled>Seleccione un caso</option>
                      <!-- Aquí se deben cargar dinámicamente los casos desde la API o la base de datos -->
 
