@@ -80,9 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             </td>
-            
-        `;
-
         productTableBody.appendChild(row);
     }
 

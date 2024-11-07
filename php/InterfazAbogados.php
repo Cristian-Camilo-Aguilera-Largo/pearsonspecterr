@@ -52,52 +52,37 @@ if (!isset($_SESSION['usuario'])) {
 </head>
 <body>
     <header>
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="index.html"><strong>Pearson Specter</strong></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <a class="nav-link" aria-current="page" href="../php/InterfazAdministradores.php">Lista de Casos</a>
-                            <a class="nav-link" href="../php/listaClientes.php">Lista Clientes</a>
-                            <a class="nav-link" href="../php/listaAbogados.php">Lista Abogados</a>
-                            <div class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Casos
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="../php/añadirCaso.php">Añadir Caso</a></li>
-                                    <li><a class="dropdown-item" href="../php/actualizarCaso.php">Actualizar Caso</a></li>
-                                    <li><a class="dropdown-item" href="../php/eliminarCaso.php">Borrar Caso</a></li>
-                                </ul>
-                            </div>
-                            <div class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Abogados
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="../php/añadirAbogado.php">Añadir Abogado</a></li>
-                                    <li><a class="dropdown-item" href="../php/ActualizarAbogado.php">Actualizar Abogado</a></li>
-                                    <li><a class="dropdown-item" href="../php/eliminarAbogado.php">Borrar Abogado</a></li>
-                                </ul>
-                            </div>
-                            <a class="nav-link" href="../php/añadirUsuario.php">Crear Usuario</a>
-                            <a class="nav-link" href="../php/CrearAdmin.php">Crear Admin</a>
-                        </div>
-
-                        <!-- Div Persona ubicado fuera de navbar-nav y con ms-auto para alinearse a la derecha -->
-                        <div class="Persona ms-auto d-flex align-items-center">
-                            <img src="../Img/Personas.png" alt="Icono Persona" class="me-2" />
-                            <span class="text-black" style="font-weight:bold;">Bienvenido, <?php echo $_SESSION['usuario']; ?></span>
-                            <a href="../php/cerrar_sesion.php" class="btn btn-danger ms-3">Cerrar sesión</a>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><strong>Pearson Specter</strong></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" aria-current="page" href="../php/InterfazAbogados.php">Lista de Casos</a>
+                        <a class="nav-link" href="../php/listaClientesIA.php">Lista Clientes</a>
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Casos
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../php/actualizarCasoIA.php">Actualizar Caso</a></li>
+                            </ul>
                         </div>
                     </div>
 
+                    <!-- Div Persona con ms-auto para alinearse a la derecha -->
+                    <div class="Persona ms-auto d-flex align-items-center">
+                        <img src="../Img/Personas.png" alt="Icono Persona" class="me-2" />
+                        <span class="text-black" style="font-weight:bold;">Bienvenido, <?php echo $_SESSION['usuario']; ?></span>
+                        <a href="../php/cerrar_sesion.php" class="btn btn-danger ms-3">Cerrar sesión</a>
+                    </div>
                 </div>
-            </nav>
-        </header>
+            </div>
+        </nav>
+    </header>
+
     <main class="container my-4">
         <div class="search mb-3">
             <input type="text" id="nombreCliente" class="form-control" placeholder="Nombre Cliente" />
@@ -228,8 +213,5 @@ if (!isset($_SESSION['usuario'])) {
         }
 
     </script>
-
-
-
 </body>
 </html>
