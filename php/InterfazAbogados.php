@@ -52,7 +52,6 @@ if (!isset($_SESSION['usuario'])) {
 </head>
 <body>
     <header>
-<<<<<<< HEAD
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html"><strong>Pearson Specter</strong></a>
