@@ -16,6 +16,7 @@ dev\germantovar\springboot\services\AbogadosService.class
 dev\germantovar\springboot\entities\Abogados.class
 dev\germantovar\springboot\SpringbootApplication.class
 dev\germantovar\springboot\controllers\UsuariosController.class
+dev\germantovar\springboot\config\SecurityConfig.class
 dev\germantovar\springboot\services\UsuariosService.class
 dev\germantovar\springboot\entities\Usuarios.class
 dev\germantovar\springboot\repository\AbogadosRepository.class
@@ -26,6 +27,7 @@ dev\germantovar\springboot\controllers\CasosRequest.class
 dev\germantovar\springboot\services\IUsuariosService.class
 dev\germantovar\springboot\config\CORSFilter.class
 dev\germantovar\springboot\repository\UsuariosRepository.class
+dev\germantovar\springboot\SwaggerConfig\SwaggerConfig.class
 dev\germantovar\springboot\services\CasosService.class
 dev\germantovar\springboot\services\IClientesService.class
 dev\germantovar\springboot\controllers\CasosController.class
