@@ -54,7 +54,7 @@ if (!isset($_SESSION['usuario'])) {
     <header>
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="index.html"><strong>Pearson Specter</strong></a>
+                    <a class="navbar-brand" href="index.html"><strong>Valbuen Abogados</strong></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -121,49 +121,49 @@ if (!isset($_SESSION['usuario'])) {
         </table>
     </main>
     <div class="foot">
-            <footer class="bg-dark text-white pt-4">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <h5 class="empresa_f">Pearson Specter</h5>
-                            <ul class="list-unstyled">
-                                <li>Síguenos</li>
-                                <li class="iconos">
-                                    <a href="#" class="text-white"><i class="bi bi-whatsapp"></i></a>
-                                    <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
-                                    <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
-                                    <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
-                                    <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <h5>Sobre nosotros</h5>
-                            <ul class="list-unstyled">
-                                <li><button type="button" class="btn btn-dark">Politica de tratamiento</button></li>
-                                <li><button type="button" class="btn btn-dark">lineaetica@pearsonspecter.com</button></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <h5>Se parte de Pearson Specter</h5>
-                            <ul class="list-unstyled">
-                                <li><button type="button" class="btn btn-dark">Trabaja con nosotros</button></li>
-                                <li><button type="button" class="btn btn-dark">trabajo@pearsonspecter.com</button></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <h5>Contacto</h5>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="text-white">321 3214321</a></li>
-                                <li><a href="#" class="text-white">atencionalcliente@pearsonspecter.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="copyright">
-                        © 2024 Pearson Specter
-                    </div>
-            </footer>
+               <footer class="bg-dark text-white pt-4">
+                   <div class="container">
+                       <div class="row">
+                           <div class="col-md-3">
+                               <h5 class="empresa_f">Valbuen Abogados</h5>
+                               <ul class="list-unstyled">
+                                   <li>Síguenos</li>
+                                   <li class="iconos">
+                                       <a href="#" class="text-white"><i class="bi bi-whatsapp"></i></a>
+                                       <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
+                                       <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                                       <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+                                       <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                                   </li>
+                               </ul>
+                           </div>
+                           <div class="col-md-3">
+                               <h5>Sobre nosotros</h5>
+                               <ul class="list-unstyled">
+                                   <li><button type="button" class="btn btn-dark">Politica de tratamiento</button></li>
+                                   <li><button type="button" class="btn btn-dark">lineaetica@ValbuenAbogados.com</button></li>
+                               </ul>
+                           </div>
+                           <div class="col-md-3">
+                               <h5>Se parte de Valbuen Abogados</h5>
+                               <ul class="list-unstyled">
+                                   <li><button type="button" class="btn btn-dark">Trabaja con nosotros</button></li>
+                                   <li><button type="button" class="btn btn-dark">trabajo@ValbuenAbogados.com</button></li>
+                               </ul>
+                           </div>
+                           <div class="col-md-3">
+                               <h5>Contacto</h5>
+                               <ul class="list-unstyled">
+                                   <li><a href="#" class="text-white">321 3214321</a></li>
+                                   <li><a href="#" class="text-white">atencionalcliente@ValbuenAbogados.com</a></li>
+                               </ul>
+                           </div>
+                       </div>
+                       </div>
+                       <div class="copyright">
+                           © 2024 Valbuen Abogados
+                       </div>
+               </footer>
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
