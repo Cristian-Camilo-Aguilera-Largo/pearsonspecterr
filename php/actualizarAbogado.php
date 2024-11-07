@@ -99,7 +99,7 @@ if (!isset($_SESSION['usuario'])) {
                 <!-- Seleccionar el caso a actualizar -->
                 <div class="mb-3">
                     <label for="selectCaso" class="form-label">Seleccionar Abogado</label>
-                    <select class="form-select" id="selectCaso" onchange="cargarDatosCaso()">
+                    <select class="form-select" id="selectAbogado" onchange="">
                         <option selected disabled>Seleccione un Abogado</option>
                         <!-- Aquí se deben cargar dinámicamente los casos desde la API o la base de datos -->
 
@@ -110,11 +110,12 @@ if (!isset($_SESSION['usuario'])) {
                 <h4>Datos Actuales</h4>
                 <div id="datosActuales">
                     <!-- Aquí se mostrarán los datos actuales del caso seleccionado -->
-                    <p><strong>Cedula del abogado:</strong> <span id="idActual"></span></p>
-                    <p><strong>Nombre del abogado:</strong> <span id="nombreActual"></span></p>
-                    <p><strong>Telefono:</strong> <span id="Descripcion"></span></p>
-                    <p><strong>Correo:</strong> <span id="fechaActual"></span></p>
-                    <p><strong>Cargo:</strong> <span id="estadoActual"></span></p>
+                    <p><strong>Cedula del abogado:</strong> <span id="cedula"></span></p>
+                    <p><strong>Nombre del abogado:</strong> <span id="telefono"></span></p>
+                    <p><strong>Telefono:</strong> <span id="correo"></span></p>
+                    <p><strong>Correo:</strong> <span id="especializacion"></span></p>
+                    <p><strong>Cargo:</strong> <span id="cargo"></span></p>
+                    <p><strong>Usuario:</strong> <span id="usuario"></span></p>
                     <!-- Agrega más campos según sea necesario -->
                 </div>
             </div>
@@ -137,8 +138,19 @@ if (!isset($_SESSION['usuario'])) {
                         <input type="email" class="form-control" id="nuevoCorreo" placeholder="Ingrese el nuevo correo">
                     </div>
                     <div class="mb-3">
+                        <label for="nuevoCorreo" class="form-label">Nueva especializacion</label>
+                        <input type="text" class="form-control" id="nuevoEspecializacion" placeholder="Ingrese la nueva especializacion">
+                    </div>
+                    <div class="mb-3">
                         <label for="nuevoCargo" class="form-label">Nuevo Cargo del Abogado</label>
                         <input type="text" class="form-control" id="nuevoCargo" placeholder="Ingrese el nuevo cargo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nuevoUsuario" class="form-label">Nuevo Usuario</label>
+                        <select class="form-select" id="seleccionusuario">
+                            <option selected disabled>Seleccione un usuario</option>
+                            <!--Aquí se deben cargar dinámicamente los nombres de clientes desde la API o la base de datos-->
+                        </select>
                     </div>
                     <!-- Agrega más campos de entrada para otros datos que se puedan actualizar -->
                     <button type="submit" class="btn btn-primary">Guardar Cambios</button>
@@ -191,7 +203,7 @@ if (!isset($_SESSION['usuario'])) {
                        </div>
                </footer>
            </div>
-    <script src="ACasojs.js"></script>
+    <script src="../actualizarAbogados.js"></script>
 </body>
 
 </html>

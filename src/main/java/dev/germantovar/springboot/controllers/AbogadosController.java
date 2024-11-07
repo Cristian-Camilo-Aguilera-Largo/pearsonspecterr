@@ -1,6 +1,7 @@
 package dev.germantovar.springboot.controllers;
 import dev.germantovar.springboot.entities.Abogados;
 
+import dev.germantovar.springboot.entities.Casos;
 import dev.germantovar.springboot.repository.AbogadosRepository;
 
 import dev.germantovar.springboot.services.IAbogadosService;
@@ -23,13 +24,35 @@ public class AbogadosController {
     AbogadosRepository abogadosRepository;
 
     @GetMapping("abogados")
-    public List<Abogados> getAll() {
-        return service.getAll();
+    public List<Abogados> getAll() {return service.getAll();}
+
+    @GetMapping("/abogados/{id}")
+    public ResponseEntity<Abogados> getCasoById(@PathVariable Long id) {
+        Abogados abogados = abogadosRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Abogado no encontrado con ID: " + id));
+        return ResponseEntity.ok(abogados);
     }
 
     @PostMapping("envioabogados")
     public void save(@RequestBody Abogados abogados){
         service.save(abogados);
+    }
+
+    @PutMapping("/abogados/{id}")
+    public ResponseEntity<Abogados> updateTutorial(@PathVariable("id") long id, @RequestBody Abogados abogados) {
+        Optional<Abogados> abogadossData = abogadosRepository.findById(id);
+        if (abogadossData.isPresent()) {
+            Abogados _abogadoss = abogadossData.get();
+            _abogadoss.setCedula(abogados.getCedula());
+            _abogadoss.setNombre(abogados.getNombre());
+            _abogadoss.setTelefono(abogados.getTelefono());
+            _abogadoss.setCorreo(abogados.getCorreo());
+            _abogadoss.setCargo(abogados.getCargo());
+            _abogadoss.setUsuarios(abogados.getUsuarios());
+            return new ResponseEntity<>(abogadosRepository.save(_abogadoss), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @DeleteMapping("envioabogados/eliminar/{id}")
