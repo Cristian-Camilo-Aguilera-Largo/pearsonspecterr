@@ -102,27 +102,30 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </nav>
     </header>
-    <div class="container mt-4">
-        <h2>Lista de Casos</h2>
-        <div class="container">
-            <table id="productTable" class="table table-striped table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Id</th>
-                        <th>Abogado</th>
-                        <th>Caso</th>
-                        <th>Fecha Inicio Caso</th>
-                        <th>Estado Caso</th>
-                        <th>Fecha Finalizacion Caso</th>
-                        <th>Ver más...</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <main class="container my-4">
+                <div class="search mb-3">
+                    <input type="text" id="nombreCliente" class="form-control" placeholder="Nombre Cliente" />
+                    <input type="text" id="nombreCaso" class="form-control my-2" placeholder="Nombre Caso" />
+                    <button id="searchBtn" class="btn btn-primary">Buscar</button>
+                </div>
+                <table id="casosTable" class="table table-striped table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Nombre del Caso</th>
+                            <th>Descripción</th>
+                            <th>Estado</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Final</th>
+                            <th>Nombre del Cliente</th>
+                            <th>Archivo Subido</th>
+                            <th>Subir Nuevo Archivo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí se llenarán los casos -->
+                    </tbody>
+                </table>
+            </main>
     <div class="foot">
                <footer class="bg-dark text-white pt-4">
                    <div class="container">
@@ -168,7 +171,101 @@ if (!isset($_SESSION['usuario'])) {
                        </div>
                </footer>
     </div>
+
     <script src="../app.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+                        fetchCasos();
+
+                        document.getElementById("searchBtn").addEventListener("click", function() {
+                            const nombreCliente = document.getElementById("nombreCliente").value.toLowerCase();
+                            const nombreCaso = document.getElementById("nombreCaso").value.toLowerCase();
+
+                            const rows = document.querySelectorAll("#casosTable tbody tr");
+                            rows.forEach(row => {
+                                const caso = row.cells[0].textContent.toLowerCase();
+                                const cliente = row.cells[5].textContent.toLowerCase();
+                                row.style.display =
+                                    (nombreCliente === "" || cliente.includes(nombreCliente)) &&
+                                    (nombreCaso === "" || caso.includes(nombreCaso)) ? "" : "none";
+                            });
+                        });
+                    });
+
+                    function fetchCasos() {
+                        const abogadoId = <?php echo $_SESSION['id_abogado']; ?>;
+
+                        fetch(`http://localhost:8080/casos/${abogadoId}`)
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Error al cargar los casos');
+                                }
+                                return response.json();
+                            })
+                            .then(casos => {
+                                const tbody = document.querySelector("#casosTable tbody");
+                                tbody.innerHTML = "";
+
+                                casos.forEach(caso => {
+                                    const archivoSubido = caso.archivo ?
+                                        `<a href="http://localhost:8080/files/${caso.archivo}" download="${caso.archivo}">${caso.archivo}</a>` :
+                                            'No disponible';
+
+                                    const row = document.createElement("tr");
+                                    row.innerHTML = `
+                                        <td>${caso.caso}</td>
+                                        <td>${caso.descripcion}</td>
+                                        <td>${caso.estado}</td>
+                                        <td>${caso.fecha_ic}</td>
+                                        <td>${caso.fecha_ct || 'No disponible'}</td>
+                                        <td>${caso.clientes.nombre}</td>
+                                        <td>${archivoSubido}</td>
+                                        <td>
+                                            <form id="form-${caso.id}" enctype="multipart/form-data">
+                                                <input type="file" name="file" class="form-control" accept=".zip" />
+                                                <button type="button" class="btn btn-primary mt-2" onclick="subirArchivo(${caso.id})">Subir</button>
+                                            </form>
+                                        </td>
+                                    `;
+                                    tbody.appendChild(row);
+                                });
+                            })
+                            .catch(error => {
+                                console.error('Error al cargar los casos:', error);
+                                alert("Hubo un problema al cargar los casos. Intenta de nuevo más tarde.");
+                            });
+                    }
+                    function descargarArchivo(filename) {
+                        const link = document.createElement('a');
+                        link.href = `http://localhost:8080/files/${filename}`;
+                        link.download = filename;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
+
+                    function subirArchivo(casoId) {
+                        const form = document.getElementById(`form-${casoId}`);
+                        const formData = new FormData(form);
+
+                        fetch(`http://localhost:8080/casos/${casoId}/subir-archivo`, {
+                            method: "POST",
+                            body: formData
+                        })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Error al subir el archivo');
+                            }
+                            alert("Archivo subido correctamente");
+                            fetchCasos();
+                        })
+                        .catch(error => {
+                            console.error("Error al subir el archivo:", error);
+                            alert("Hubo un problema al subir el archivo. Intenta de nuevo más tarde.");
+                        });
+                    }
+
+    </script>
 </body>
 
 </html>
