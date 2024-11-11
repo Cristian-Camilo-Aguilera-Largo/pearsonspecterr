@@ -56,9 +56,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         row.innerHTML = `
             <td>${product.caso}</td>
+            <td>${product.estado}</td>
             <td>${product.fecha_ic}</td>
             <td>${product.fecha_ct || 'No disponible'}</td>
-            <td>${product.estado}</td>
             <td>${abogadoNombre}</td>
             <td>${clienteNombre}</td>  <!-- Mostrar el nombre del cliente -->
             <td>${product.archivo || 'No disponible'}</td>

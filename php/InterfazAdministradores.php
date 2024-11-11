@@ -113,11 +113,11 @@ if (!isset($_SESSION['usuario'])) {
                     <thead class="table-dark">
                         <tr>
                             <th>Nombre del Caso</th>
+                            <th>Estado</th>
                             <th>Fecha Inicio</th>
                             <th>Fecha Final</th>
-                            <th>Estado</th>
-                            <th>Nombre del Cliente</th>
                             <th>Nombre del Abogado</th>
+                            <th>Nombre del Cliente</th>
                             <th>Archivo Subido</th>
                             <th>Subir Nuevo Archivo</th>
                             <th>Ver más..</th>
