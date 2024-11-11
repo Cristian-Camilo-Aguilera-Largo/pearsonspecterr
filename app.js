@@ -133,21 +133,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             });
                         }
 
-
-    document.getElementById("searchBtn").addEventListener("click", function() {
-                            const nombreCliente = document.getElementById("nombreCliente").value.toLowerCase();
-                            const nombreCaso = document.getElementById("nombreCaso").value.toLowerCase();
-
-                            const rows = document.querySelectorAll("#casosTable tbody tr");
-                            rows.forEach(row => {
-                                const caso = row.cells[0].textContent.toLowerCase();
-                                const cliente = row.cells[5].textContent.toLowerCase();
-                                row.style.display =
-                                    (nombreCliente === "" || cliente.includes(clienteNombre)) &&
-                                    (nombreCaso === "" || caso.includes(product.caso)) ? "" : "none";
-                            });
-                        });
-
     // Llamada a la función para obtener los abogados y productos al cargar la página
     fetchAbogados().then(() => {
         fetchProducts();

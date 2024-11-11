@@ -104,11 +104,9 @@ if (!isset($_SESSION['usuario'])) {
         </nav>
     </header>
     <main class="container my-4">
-                <div class="search mb-3">
-                    <input type="text" id="nombreCliente" class="form-control" placeholder="Nombre Cliente" />
-                    <input type="text" id="nombreCaso" class="form-control my-2" placeholder="Nombre Caso" />
-                    <button id="searchBtn" class="btn btn-primary">Buscar</button>
-                </div>
+
+                <h2> Lista de Casos </h2>
+                <br>
                 <table id="productTable" class="table table-striped table-bordered">
                     <thead class="table-dark">
                         <tr>
