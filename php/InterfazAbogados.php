@@ -108,49 +108,49 @@ if (!isset($_SESSION['usuario'])) {
             </table>
         </main>
     <div class="foot">
-                   <footer class="bg-dark text-white pt-4">
-                       <div class="container">
-                           <div class="row">
-                               <div class="col-md-3">
-                                   <h5 class="empresa_f">ValbuenAbogados</h5>
-                                   <ul class="list-unstyled">
-                                       <li>Síguenos</li>
-                                       <li class="iconos">
-                                           <a href="#" class="text-white"><i class="bi bi-whatsapp"></i></a>
-                                           <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
-                                           <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
-                                           <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
-                                           <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
-                                       </li>
-                                   </ul>
-                               </div>
-                               <div class="col-md-3">
-                                   <h5>Sobre nosotros</h5>
-                                   <ul class="list-unstyled">
-                                       <li><button type="button" class="btn btn-dark">Politica de tratamiento</button></li>
-                                       <li><button type="button" class="btn btn-dark">lineaetica@ValbuenAbogados.com</button></li>
-                                   </ul>
-                               </div>
-                               <div class="col-md-3">
-                                   <h5>Se parte de ValbuenAbogados</h5>
-                                   <ul class="list-unstyled">
-                                       <li><button type="button" class="btn btn-dark">Trabaja con nosotros</button></li>
-                                       <li><button type="button" class="btn btn-dark">trabajo@ValbuenAbogados.com</button></li>
-                                   </ul>
-                               </div>
-                               <div class="col-md-3">
-                                   <h5>Contacto</h5>
-                                   <ul class="list-unstyled">
-                                       <li><a href="#" class="text-white">321 3214321</a></li>
-                                       <li><a href="#" class="text-white">atencionalcliente@ValbuenAbogados.com</a></li>
-                                   </ul>
-                               </div>
-                           </div>
-                           </div>
-                           <div class="copyright">
-                               © 2024 ValbuenAbogados
-                           </div>
-                   </footer>
+        <footer class="bg-dark text-white pt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5 class="empresa_f">ValbuenAbogados</h5>
+                        <ul class="list-unstyled">
+                            <li>Síguenos</li>
+                            <li class="iconos">
+                                <a href="#" class="text-white"><i class="bi bi-whatsapp"></i></a>
+                                <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
+                                <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                                <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Sobre nosotros</h5>
+                        <ul class="list-unstyled">
+                            <li><button type="button" class="btn btn-dark">Politica de tratamiento</button></li>
+                            <li><button type="button" class="btn btn-dark">lineaetica@ValbuenAbogados.com</button></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Se parte de ValbuenAbogados</h5>
+                        <ul class="list-unstyled">
+                            <li><button type="button" class="btn btn-dark">Trabaja con nosotros</button></li>
+                            <li><button type="button" class="btn btn-dark">trabajo@ValbuenAbogados.com</button></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Contacto</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">321 3214321</a></li>
+                            <li><a href="#" class="text-white">atencionalcliente@ValbuenAbogados.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+                <div class="copyright">
+                    © 2024 ValbuenAbogados
+                </div>
+        </footer>
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>

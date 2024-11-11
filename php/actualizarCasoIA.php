@@ -184,7 +184,7 @@ if (!isset($_SESSION['usuario'])) {
                        </div>
                </footer>
            </div>
-    <script src="../actualizarCasoJs.js"></script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             fetchCasosAbogado();
@@ -215,6 +215,30 @@ if (!isset($_SESSION['usuario'])) {
                     })
                     .catch(error => console.error('Error al cargar los casos del abogado:', error));
             }
+
+            // Cargar los nombres de clientes al cargar la página
+            fetch('http://localhost:8080/clientes')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la respuesta de la red ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const clienteSelect = document.getElementById('seleccionclientes');
+
+                    // Agregar la opción predeterminada
+                    clienteSelect.innerHTML = '<option selected disabled>Seleccione un cliente</option>';
+                    // Limpiar las opciones anteriores, asegurándose de que el select esté vacío
+                    clienteSelect.innerHTML = '';
+                    data.forEach(cliente => {
+                        const option = document.createElement('option');
+                        option.value = cliente.id;
+                        option.text = cliente.nombre;
+                        clienteSelect.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error al cargar los nombres de clientes:', error));
 
             // Escuchar cambios en la selección del caso
             document.getElementById('seleccioncaso').addEventListener('change', function () {
@@ -247,29 +271,7 @@ if (!isset($_SESSION['usuario'])) {
             }
             document.getElementById('nuevoEstado').addEventListener('change', toggleFechaTc);
 
-            // Cargar los nombres de clientes al cargar la página
-            fetch('http://localhost:8080/clientes')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error en la respuesta de la red ' + response.statusText);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    const clienteSelect = document.getElementById('seleccionclientes');
-
-                            // Agregar la opción predeterminada
-                            clienteSelect.innerHTML = '<option selected disabled>Seleccione un cliente</option>';
-                                                // Limpiar las opciones anteriores, asegurándose de que el select esté vacío
-                                                        clienteSelect.innerHTML = '';
-                    data.forEach(cliente => {
-                        const option = document.createElement('option');
-                        option.value = cliente.id;
-                        option.text = cliente.nombre;
-                        clienteSelect.appendChild(option);
-                    });
-                })
-                .catch(error => console.error('Error al cargar los nombres de clientes:', error));
+            
         });
 
         // Enviar la actualización del caso

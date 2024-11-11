@@ -53,7 +53,7 @@ document.getElementById('seleccioncaso').addEventListener('change', function () 
             .catch(error => console.error('Error al cargar los detalles del caso:', error));
     }
 
-    //Cargar nombres de abogados al cargar la pagina
+    //Cargar nombres de clientes al cargar la pagina
     fetch('http://localhost:8080/clientes')
     .then(response => {
         if(!response.ok) {
