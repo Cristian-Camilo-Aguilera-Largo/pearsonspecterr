@@ -112,7 +112,6 @@ $id_usuario = $_SESSION['usuario']; // Asumiendo que almacenas el ID del cliente
                     <tr>
                         <th>Id</th>
                         <th>Abogado</th>
-                        <th>Cliente</th>
                         <th>Caso</th>
                         <th>Estado</th>
                         <th>Fecha Inicio</th>
@@ -195,7 +194,6 @@ $id_usuario = $_SESSION['usuario']; // Asumiendo que almacenas el ID del cliente
                             <tr>
                                 <td>${caso.id}</td>
                                 <td>${caso.abogados.nombre}</td>
-                                <td>${caso.clientes.nombre}</td>
                                 <td>${caso.caso}</td>
                                 <td>${caso.estado}</td>
                                 <td>${caso.fecha_ic}</td>
