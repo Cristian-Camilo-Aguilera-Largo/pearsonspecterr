@@ -51,14 +51,6 @@
           <label for="recuerdame" style="display: inline-block;">Recuérdame</label>
           <a href="#" class="login-link" id="olvidaste-contrasena">¿Olvidaste tu contraseña?</a>
 
-          <script>
-            // Manejador de clic para el enlace "¿Olvidaste tu contraseña?"
-            document.getElementById('olvidaste-contrasena').addEventListener('click', function(event) {
-              event.preventDefault(); // Evita la redirección por defecto del enlace
-
-              alert("Por favor ingresa con el usuario administrador o pide a un administrador que inicie sesión para cambiar tu contraseña.");
-            });
-          </script>
         </div>
       </div>
     </div>
