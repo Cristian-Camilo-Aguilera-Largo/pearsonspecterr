@@ -66,29 +66,6 @@ $id_usuario = $_SESSION['usuario']; // Asumiendo que almacenas el ID del cliente
                         <div class="navbar-nav">
                             <a class="nav-link" aria-current="page" href="../php/InterfazAdministradores.php">Lista de Casos</a>
                             <a class="nav-link" href="../php/listaClientes.php">Lista Clientes</a>
-                            <a class="nav-link" href="../php/listaAbogados.php">Lista Abogados</a>
-                            <div class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Casos
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="../php/añadirCaso.php">Añadir Caso</a></li>
-                                    <li><a class="dropdown-item" href="../php/actualizarCaso.php">Actualizar Caso</a></li>
-                                    <li><a class="dropdown-item" href="../php/eliminarCaso.php">Borrar Caso</a></li>
-                                </ul>
-                            </div>
-                            <div class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Abogados
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="../php/añadirAbogado.php">Añadir Abogado</a></li>
-                                    <li><a class="dropdown-item" href="../php/ActualizarAbogado.php">Actualizar Abogado</a></li>
-                                    <li><a class="dropdown-item" href="../php/eliminarAbogado.php">Borrar Abogado</a></li>
-                                </ul>
-                            </div>
-                            <a class="nav-link" href="../php/añadirUsuario.php">Crear Usuario</a>
-                            <a class="nav-link" href="../php/CrearAdmin.php">Crear Admin</a>
                         </div>
 
                         <!-- Div Persona ubicado fuera de navbar-nav y con ms-auto para alinearse a la derecha -->
@@ -110,13 +87,14 @@ $id_usuario = $_SESSION['usuario']; // Asumiendo que almacenas el ID del cliente
             <table id="productTable" class="table table-striped table-bordered">
                 <thead class="table-dark">
                     <tr>
-                        <th>Id</th>
+                        <th>Nombre del Caso</th>
                         <th>Abogado</th>
-                        <th>Caso</th>
                         <th>Estado</th>
                         <th>Fecha Inicio</th>
-                        <th>Fecha Finalización Caso</th>
-                        <th>Ver más...</th>
+                        <th>Fecha Final</th>
+                        <th>Archivo Subido</th>
+                        <th>Subir Nuevo Archivo</th>
+                        <th>Ver más..</th>
                     </tr>
                 </thead>
                 <tbody id="casosContainer">
@@ -173,10 +151,12 @@ $id_usuario = $_SESSION['usuario']; // Asumiendo que almacenas el ID del cliente
     </div>
 
     <script>
-        const idUsuario = <?php echo $_SESSION['id_cliente']; ?>; // ID del cliente logueado
+        fetchCasos()
+        function fetchCasos() {
+            const idUsuario = <?php echo $_SESSION['id_cliente']; ?>; // ID del cliente logueado
 
-        // Llamar al endpoint para obtener los casos del cliente
-        fetch(`http://localhost:8080/cliente/${idUsuario}`)
+            // Llamar al endpoint para obtener los casos del cliente
+            fetch(`http://localhost:8080/cliente/${idUsuario}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
@@ -184,30 +164,99 @@ $id_usuario = $_SESSION['usuario']; // Asumiendo que almacenas el ID del cliente
                 return response.json();
             })
             .then(data => {
-                console.log(data); // Aquí puedes manejar los casos que se reciben
-                const casosContainer = document.getElementById("casosContainer");
-                if (data.length === 0) {
-                    casosContainer.innerHTML = `<tr><td colspan="8" class="text-center">No se encontraron casos.</td></tr>`;
-                } else {
-                    data.forEach(caso => {
-                        casosContainer.innerHTML += `
-                            <tr>
-                                <td>${caso.id}</td>
-                                <td>${caso.abogados.nombre}</td>
-                                <td>${caso.caso}</td>
-                                <td>${caso.estado}</td>
-                                <td>${caso.fecha_ic}</td>
-                                <td>${caso.fecha_ct || 'No disponible'}</td>
-                                <td><a href="detallesCaso.php?id=${caso.id}" class="btn btn-primary">Ver más</a></td>
-                            </tr>`;
-                    });
-                }
+            console.log(data); // Aquí puedes manejar los casos que se reciben
+            const casosContainer = document.getElementById("casosContainer");
+            casosContainer.innerHTML = "";
+            if (data.length === 0) {
+                casosContainer.innerHTML = `<tr><td colspan="8" class="text-center">No se encontraron casos.</td></tr>`;
+            } else {
+                data.forEach(caso => {
+                    const archivoSubido = caso.archivo ?
+                                `<a href="http://localhost:8080/files/${caso.archivo}" download="${caso.archivo}">${caso.archivo}</a>` :
+                                    'No disponible';
+                    casosContainer.innerHTML += `
+                        <tr>
+                            <td>${caso.caso}</td>
+                            <td>${caso.abogados.nombre}</td>
+                            <td>${caso.estado}</td>
+                            <td>${caso.fecha_ic}</td>
+                            <td>${caso.fecha_ct || 'No disponible'}</td>
+                            <td>${archivoSubido || 'No disponible'}</td>
+                            <td>
+                                <form id="form-${caso.id}" enctype="multipart/form-data">
+                                    <input type="file" name="file" class="form-control" accept=".zip" />
+                                    <button type="button" class="btn btn-primary mt-2" onclick="subirArchivo(${caso.id})">Subir</button>
+                                </form>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop-${caso.id}">
+                                    Ver más...
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop-${caso.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-${caso.id}" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="staticBackdropLabel-${caso.id}">${caso.caso}</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p><strong>Descripción:</strong> ${caso.descripcion}</p>
+                                                <p><strong>Cliente:</strong> ${caso.clientes.nombre}</p>
+                                                <p><strong>Abogado:</strong> ${caso.abogados.id}</p>
+                                                <p><strong>Estado:</strong> ${caso.estado}</p>
+                                                <p><strong>Fecha de inicio:</strong> ${caso.fecha_ic}</p>
+                                                <p><strong>Fecha de cierre:</strong> ${caso.fecha_ct || 'No disponible'}</p>
+
+                                                <div id="fileName-${caso.id}" class="mt-3"></div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>`;
+                    
+                });
+            }
             })
             .catch(error => {
                 console.error('Error:', error);
                 const casosContainer = document.getElementById("casosContainer");
                 casosContainer.innerHTML = `<tr><td colspan="8" class="text-center">Error al cargar los casos.</td></tr>`;
             });
+        }
+        function descargarArchivo(filename) {
+            const link = document.createElement('a');
+            link.href = `http://localhost:8080/files/${filename}`;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function subirArchivo(casoId) {
+            const form = document.getElementById(`form-${casoId}`);
+            const formData = new FormData(form);
+
+            fetch(`http://localhost:8080/casos/${casoId}/subir-archivo`, {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al subir el archivo');
+                }
+                alert("Archivo subido correctamente");
+                fetchCasos();
+            })
+            .catch(error => {
+                console.error("Error al subir el archivo:", error);
+                
+            });
+        }
     </script>
 
 </body>
