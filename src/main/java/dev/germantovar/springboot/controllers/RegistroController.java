@@ -7,63 +7,61 @@ import dev.germantovar.springboot.entities.Clientes;
 import dev.germantovar.springboot.repository.ClientesRepository;
 import dev.germantovar.springboot.repository.RolesRepository;
 import dev.germantovar.springboot.repository.UsuariosRepository;
+import dev.germantovar.springboot.services.ClientesService;
+import dev.germantovar.springboot.services.RolesService;
+import dev.germantovar.springboot.services.UsuariosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
-
+@RequestMapping("/registro")
 @RestController
 public class RegistroController {
 
     @Autowired
-    private UsuariosRepository usuariosRepository;
+    private UsuariosService usuariosService;
 
     @Autowired
-    private RolesRepository rolesRepository;
+    private ClientesService clientesService;
 
     @Autowired
-    private ClientesRepository clientesRepository;
+    private RolesService rolesService;
 
-    /**
-     * Endpoint para registrar un nuevo Usuario y Cliente.
-     * @param registroVM los datos del usuario y cliente a registrar
-     * @return respuesta con el estado de la operación
-     */
-    @PostMapping("/registro")
-    public ResponseEntity<String> registrarUsuarioYCliente(@RequestBody RegistroVM registroVM) {
-        // 1. Crear el Usuario
-        Usuarios usuario = new Usuarios();
-        usuario.setUser(registroVM.getUsername());
-        usuario.setPass(registroVM.getPassword());
 
-        // 2. Obtener y asignar el rol predeterminado al Usuario (en este caso, rol con id = 3)
-        Optional<Roles> rolOpt = rolesRepository.findById(3L); // Asegúrate que el ID 3L corresponde a un rol válido
-        if (!rolOpt.isPresent()) {
-            return new ResponseEntity<>("Rol no encontrado", HttpStatus.BAD_REQUEST);
-        }
-        Roles rol = rolOpt.get();
-        usuario.setRoles(rol); // Asociar el rol al usuario
-
-        // 3. Guardar el Usuario en la base de datos
-        usuario = usuariosRepository.save(usuario);  // Guardo y recupero el objeto Usuario actualizado
-
-        // 4. Crear el Cliente y asociarlo con el Usuario recién creado
-        Clientes cliente = new Clientes();
-        cliente.setNombre(registroVM.getNombre());
-        cliente.setApellido(registroVM.getApellido());
-        cliente.setTelefono(registroVM.getTelefono());
-        cliente.setEmail(registroVM.getEmail());
-        cliente.setUsuarios(usuario); // Asociar al Usuario creado
-
-        // 5. Guardar el Cliente en la base de datos
-        clientesRepository.save(cliente);
-
-        // 6. Responder al cliente que se registró con éxito
-        return new ResponseEntity<>("Usuario y Cliente registrados con éxito", HttpStatus.CREATED);
+    // Endpoint para registrar un cliente
+    @PostMapping("/cliente")
+    public String registrarCliente(@RequestBody Clientes cliente) {
+        clientesService.registrar(cliente);
+        return "Cliente registrado exitosamente!";
     }
+
+    @PostMapping("/usuario")
+    public String registrarUsuario(@RequestBody Usuarios usuario) {
+        // Verifica los valores recibidos
+        System.out.println("User: " + usuario.getUser());
+        System.out.println("Pass: " + usuario.getPass());
+
+        // Asignar rol predeterminado
+        Roles rolPredeterminado = rolesService.getAll().stream()
+                .filter(rol -> rol.getId_rol().equals(3L)) // Usa el getter correcto getId_rol()
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Rol no encontrado"));
+
+        usuario.setRoles(rolPredeterminado);
+
+        // Guardar el usuario
+        usuariosService.registrar(usuario);
+        return "Usuario registrado exitosamente!";
+    }
+
+
+
+
+
 
 }

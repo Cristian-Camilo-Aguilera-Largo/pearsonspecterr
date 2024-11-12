@@ -14,83 +14,69 @@
       <div class="register-container">
 
         <!-- Encabezado de registro -->
-        <h2>Formulario de Registro</h2>
+             <h2>Formulario de Registro</h2>
 
-        <!-- Formulario de registro -->
-        <form id="registroForm" class="login-form" onsubmit="event.preventDefault(); registrarUsuario();">
-          <br>
-          <h5>Ingrese los siguientes datos:</h5>
-          <br>
-          <div class="login-input">
-            <input type="text" name="username" id="username" placeholder="Nombre" required />
-          </div>
+             <!-- Formulario de registro -->
+             <form id="registroForm" class="login-form" onsubmit="event.preventDefault(); registrarCliente();">
+               <br>
+               <h5>Ingrese los siguientes datos:</h5>
+               <br>
+               <div class="login-input">
+                 <input type="text" name="username" id="nombre" placeholder="Nombre" required />
+               </div>
 
-          <div class="login-input">
-            <input type="text" name="apellido" id="apellido" placeholder="Apellidos" required />
-          </div>
+               <div class="login-input">
+                 <input type="text" name="apellido" id="apellido" placeholder="Apellidos" required />
+               </div>
 
-          <div class="login-input">
-            <input type="number" name="telefono" id="telefono" placeholder="Teléfono" required>
-          </div>
+               <div class="login-input">
+                 <input type="number" name="telefono" id="telefono" placeholder="Teléfono" required>
+               </div>
 
-          <!-- Botón de envío del formulario -->
-          <button type="submit" class="login-button">Registrar</button>
-        </form>
+               <!-- Botón de envío del formulario -->
+               <button type="submit" class="login-button">Registrar</button>
+             </form>
 
-        <!-- Enlace para volver al inicio de sesión -->
-        <a href="/pearsonspecterr/php/Login.php">
-          <button type="button" class="register-button">Volver al inicio de sesión</button>
-        </a>
+             <!-- Enlace para volver al inicio de sesión -->
+             <a href="/pearsonspecterr/php/Login.php">
+               <button type="button" class="register-button">Volver al inicio de sesión</button>
+             </a>
       </div>
     </div>
   </div>
 
   <script>
-    async function registrarUsuario() {
-
-      // Obtener valores de contraseña y confirmación
-      const contrasena = document.getElementById("contrasena").value;
-      const confirmarContrasena = document.getElementById("confirmarContrasena").value;
-
-      // Verificar que las contraseñas coincidan
-      if (contrasena !== confirmarContrasena) {
-        alert("Las contraseñas no coinciden. Inténtalo de nuevo.");
-        return;
-      }
-
-      // Obtener los datos del formulario
-      const usuarioData = {
-        nombre: document.getElementById("username").value,  // Corregido a "username"
-        apellido: document.getElementById("apellido").value,
-        telefono: document.getElementById("telefono").value,
-        email: document.getElementById("correo").value,
-        password: contrasena  // Corregido a "password"
+    function registrarCliente() {
+      const cliente = {
+        nombre: document.getElementById('nombre').value,
+        apellido: document.getElementById('apellido').value,
+        telefono: document.getElementById('telefono').value
       };
 
-      try {
-        // Enviar los datos a la API
-        const response = await fetch("http://localhost:8080/registro", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(usuarioData)
-        });
-
-        // Verificar la respuesta del servidor
+      // Enviar los datos del cliente al backend
+      fetch('http://localhost:8080/registro/cliente', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cliente)
+      })
+      .then(response => {
         if (response.ok) {
-          alert("Usuario registrado con éxito");
-          document.getElementById("registroForm").reset(); // Vaciar los campos del formulario
+          return response.text(); // Leer la respuesta si es exitosa
         } else {
-          alert("Error al registrar el usuario");
+          throw new Error('Hubo un problema con la solicitud');
         }
-      } catch (error) {
-        console.error("Error en la solicitud:", error);
-        alert("Error al conectar con el servidor");
-      }
+      })
+      .then(data => {
+        alert(data); // Mostrar mensaje de éxito
+        window.location.href = "/pearsonspecterr/php/registroUsuario.php"; // Redirigir al formulario de registro de usuario
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Hubo un error al registrar el cliente.');
+      });
     }
-    header("Location: /pearsonspecterr/php/registroUsuario.php");
-    exit();
   </script>
 
 </body>

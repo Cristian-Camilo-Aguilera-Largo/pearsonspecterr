@@ -21,4 +21,8 @@ public class UsuariosService implements IUsuariosService{
     public void save(Usuarios usuarios){
         repository.save(usuarios);
     }
+
+    public void registrar(Usuarios usuario) {
+        repository.save(usuario);
+    }
 }

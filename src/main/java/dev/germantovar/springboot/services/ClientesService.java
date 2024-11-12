@@ -26,7 +26,9 @@ public class ClientesService implements IClientesService {
     }
 
 
-
+    public void registrar(Clientes cliente) {
+        repository.save(cliente);
+    }
 
 
 }
