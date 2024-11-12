@@ -33,17 +33,6 @@
             <input type="number" name="telefono" id="telefono" placeholder="Teléfono" required>
           </div>
 
-          <div class="login-input">
-            <input type="email" name="correo" id="correo" placeholder="Correo electrónico" required>
-          </div>
-
-          <div class="login-input">
-            <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" required>
-          </div>
-
-          <div class="login-input">
-            <input type="password" id="confirmarContrasena" placeholder="Confirmar Contraseña" required>
-          </div>
           <!-- Botón de envío del formulario -->
           <button type="submit" class="login-button">Registrar</button>
         </form>
@@ -58,6 +47,7 @@
 
   <script>
     async function registrarUsuario() {
+
       // Obtener valores de contraseña y confirmación
       const contrasena = document.getElementById("contrasena").value;
       const confirmarContrasena = document.getElementById("confirmarContrasena").value;
@@ -99,6 +89,8 @@
         alert("Error al conectar con el servidor");
       }
     }
+    header("Location: /pearsonspecterr/php/registroUsuario.php");
+    exit();
   </script>
 
 </body>
