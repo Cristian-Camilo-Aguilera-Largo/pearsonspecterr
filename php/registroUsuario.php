@@ -19,22 +19,22 @@
         <!-- Formulario de registro -->
         <form action="procesar_registro.php" method="POST" class="login-form">
           <br>
-          <h5>Ingrese los siguientes datos:</h5>
+          <h5>Los datos que ingrese seran sus datos para iniciar sesión</h5>
           <br>
-          <div class="login-input">
-            <input type="text" name="username" placeholder="Nombre" required />
-          </div>
+          <!-- Campo de entrada para el correo -->
+            <div class="login-input">
+              <input type="email" name="correo" id="correo" placeholder="Correo electrónico" required>
+            </div>
 
-          <!-- Campo de entrada para la contraseña -->
-          <div class="login-input">
-            <input type="text" name="password" placeholder="Apellidos" required />
-          </div>
+            <!-- Campo de entrada para la contraseña -->
+            <div class="login-input">
+              <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" required>
+            </div>
 
-          <!-- Campo de entrada para el teléfono -->
-          <div class="login-input">
-            <input type="number" name="telefono" id="telefono" placeholder="Teléfono" required>
-          </div>
-
+            <!-- Campo de entrada para la contraseña -->
+            <div class="login-input">
+              <input type="password" name="contrasena" id="contrasena" placeholder="Confirmar Contraseña" required>
+            </div>
           <!-- Botón de envío del formulario -->
           <button type="submit" class="login-button">Registrar</button>
         </form>
@@ -47,4 +47,5 @@
     </div>
   </div>
 </body>
+
 </html>
