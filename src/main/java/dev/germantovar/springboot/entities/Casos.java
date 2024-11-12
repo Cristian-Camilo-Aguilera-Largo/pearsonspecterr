@@ -16,7 +16,7 @@ public class Casos {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_abogado")
+    @JoinColumn(name = "id_abogado", nullable = true)
     private Abogados abogados;
 
     @ManyToOne

@@ -5,7 +5,9 @@ C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\service
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\config\CORSFilter.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\controllers\CasosController.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\controllers\ClientesController.java
+C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\controllers\RegistroController.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\services\IClientesService.java
+C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\services\RegistroService.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\entities\Usuarios.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\SpringbootApplication.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\controllers\RolesController.java
@@ -13,6 +15,7 @@ C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\entitie
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\services\AbogadosService.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\services\IUsuariosService.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\controllers\Damn.java
+C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\VM\RegistroVM.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\entities\Abogados.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\repository\AbogadosRepository.java
 C:\xampp\htdocs\pearsonspecterr\src\main\java\dev\germantovar\springboot\controllers\UsuariosRequest.java
