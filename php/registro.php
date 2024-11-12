@@ -37,6 +37,10 @@
                <button type="submit" class="login-button">Registrar</button>
              </form>
 
+          <!-- Botón de envío del formulario -->
+          <button type="submit" class="login-button">Siguiente</button>
+        </form>
+
              <!-- Enlace para volver al inicio de sesión -->
              <a href="/pearsonspecterr/php/Login.php">
                <button type="button" class="register-button">Volver al inicio de sesión</button>

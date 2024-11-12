@@ -44,6 +44,10 @@
         <a href="/pearsonspecterr/php/Login.php">
           <button type="button" class="register-button">Volver al inicio de sesión</button>
         </a>
+
+          <a href="/pearsonspecterr/php/registro.php">
+                      <button type="button" class="register-button">Atrás</button>
+          </a>
       </div>
     </div>
   </div>
