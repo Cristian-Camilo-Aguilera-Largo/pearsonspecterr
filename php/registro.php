@@ -17,49 +17,89 @@
         <h2>Formulario de Registro</h2>
 
         <!-- Formulario de registro -->
-        <form action="procesar_registro.php" method="POST" class="login-form">
+        <form id="registroForm" class="login-form" onsubmit="event.preventDefault(); registrarUsuario();">
           <br>
           <div class="login-input">
-            <input type="text" name="username" placeholder="Nombre" required />
+            <input type="text" name="username" id="username" placeholder="Nombre" required />
           </div>
 
-          <!-- Campo de entrada para la contraseña -->
           <div class="login-input">
-            <input type="text" name="password" placeholder="Apellidos" required />
+            <input type="text" name="apellido" id="apellido" placeholder="Apellidos" required />
           </div>
 
-          <!-- Campo de entrada para el teléfono -->
           <div class="login-input">
             <input type="number" name="telefono" id="telefono" placeholder="Teléfono" required>
           </div>
 
-          <!-- Campo de entrada para el correo -->
           <div class="login-input">
             <input type="email" name="correo" id="correo" placeholder="Correo electrónico" required>
           </div>
 
-          <!-- Campo de entrada para la contraseña -->
           <div class="login-input">
             <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" required>
           </div>
 
-          <!-- Campo de entrada para la contraseña -->
           <div class="login-input">
-            <input type="password" name="contrasena" id="contrasena" placeholder="Confirmar Contraseña" required>
+            <input type="password" id="confirmarContrasena" placeholder="Confirmar Contraseña" required>
           </div>
-
 
           <!-- Botón de envío del formulario -->
           <button type="submit" class="login-button">Registrar</button>
         </form>
 
         <!-- Enlace para volver al inicio de sesión -->
-          <a href="/pearsonspecterr/php/Login.php">
-                      <button type="button" class="register-button">Volver al inicio de seion</button>
-          </a>
+        <a href="/pearsonspecterr/php/Login.php">
+          <button type="button" class="register-button">Volver al inicio de sesión</button>
+        </a>
       </div>
     </div>
   </div>
+
+  <script>
+    async function registrarUsuario() {
+      // Obtener valores de contraseña y confirmación
+      const contrasena = document.getElementById("contrasena").value;
+      const confirmarContrasena = document.getElementById("confirmarContrasena").value;
+
+      // Verificar que las contraseñas coincidan
+      if (contrasena !== confirmarContrasena) {
+        alert("Las contraseñas no coinciden. Inténtalo de nuevo.");
+        return;
+      }
+
+      // Obtener los datos del formulario
+      const usuarioData = {
+        nombre: document.getElementById("username").value,  // Corregido a "username"
+        apellido: document.getElementById("apellido").value,
+        telefono: document.getElementById("telefono").value,
+        email: document.getElementById("correo").value,
+        password: contrasena  // Corregido a "password"
+      };
+
+      try {
+        // Enviar los datos a la API
+        const response = await fetch("http://localhost:8080/registro", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(usuarioData)
+        });
+
+        // Verificar la respuesta del servidor
+        if (response.ok) {
+          alert("Usuario registrado con éxito");
+          document.getElementById("registroForm").reset(); // Vaciar los campos del formulario
+        } else {
+          alert("Error al registrar el usuario");
+        }
+      } catch (error) {
+        console.error("Error en la solicitud:", error);
+        alert("Error al conectar con el servidor");
+      }
+    }
+  </script>
+
 </body>
 
 </html>
