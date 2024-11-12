@@ -8,6 +8,7 @@ dev\germantovar\springboot\controllers\ClientesController.class
 dev\germantovar\springboot\controllers\UsuariosRequest.class
 dev\germantovar\springboot\entities\Casos.class
 dev\germantovar\springboot\repository\CasosRepository.class
+dev\germantovar\springboot\services\RegistroService.class
 dev\germantovar\springboot\services\IRolesService.class
 dev\germantovar\springboot\entities\Roles.class
 dev\germantovar\springboot\controllers\Damn.class
@@ -21,10 +22,12 @@ dev\germantovar\springboot\entities\Usuarios.class
 dev\germantovar\springboot\repository\AbogadosRepository.class
 dev\germantovar\springboot\services\ICasosService.class
 dev\germantovar\springboot\ServletInitializer.class
+dev\germantovar\springboot\VM\RegistroVM.class
 dev\germantovar\springboot\services\IAbogadosService.class
 dev\germantovar\springboot\controllers\CasosRequest.class
 dev\germantovar\springboot\services\IUsuariosService.class
 dev\germantovar\springboot\config\CORSFilter.class
+dev\germantovar\springboot\controllers\RegistroController.class
 dev\germantovar\springboot\repository\UsuariosRepository.class
 dev\germantovar\springboot\services\CasosService.class
 dev\germantovar\springboot\services\IClientesService.class
