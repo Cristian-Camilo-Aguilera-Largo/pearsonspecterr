@@ -58,14 +58,13 @@ $id_usuario = $_SESSION['usuario']; // Asumiendo que almacenas el ID del cliente
     <header>
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="index.html"><strong>Valbuen Abogados</strong></a>
+                    <a class="navbar-brand" href="../php/InterfazClientes.php"><strong>Valbuen Abogados</strong></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-link" aria-current="page" href="../php/InterfazAdministradores.php">Lista de Casos</a>
-                            <a class="nav-link" href="../php/listaClientes.php">Lista Clientes</a>
+                            <a class="nav-link" aria-current="page" href="../php/InterfazClientes.php">Lista de Casos</a>
                         </div>
 
                         <!-- Div Persona ubicado fuera de navbar-nav y con ms-auto para alinearse a la derecha -->

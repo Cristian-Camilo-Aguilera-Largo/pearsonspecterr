@@ -54,7 +54,7 @@ if (!isset($_SESSION['usuario'])) {
     <header>
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="index.html"><strong>Valbuen Abogados</strong></a>
+                        <a class="navbar-brand" href="../php/InterfazAbogados.php"><strong>Valbuen Abogados</strong></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
