@@ -33,8 +33,6 @@
             <input type="number" name="telefono" id="telefono" placeholder="Teléfono" required>
           </div>
 
-<<<<<<< HEAD
-=======
           <div class="login-input">
             <input type="email" name="correo" id="correo" placeholder="Correo electrónico" required>
           </div>
@@ -46,8 +44,6 @@
           <div class="login-input">
             <input type="password" id="confirmarContrasena" placeholder="Confirmar Contraseña" required>
           </div>
-
->>>>>>> dd32a489a69cbad03c800cb6706a4cda21cd869f
           <!-- Botón de envío del formulario -->
           <button type="submit" class="login-button">Registrar</button>
         </form>
@@ -106,9 +102,8 @@
   </script>
 
 </body>
-<<<<<<< HEAD
-</html>
-=======
 
 </html>
->>>>>>> dd32a489a69cbad03c800cb6706a4cda21cd869f
+
+
+
