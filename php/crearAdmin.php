@@ -93,7 +93,9 @@ if (!isset($_SESSION['usuario'])) {
             <div class="mb-3">
                 <label for="Abogado" class="form-label">Usuario del Abogado</label>
                 <select class="form-select" id="Abogado">
-                    <!--Opciones seran llenadas por JavaScript-->
+                    <option selected disabled>Seleccione un abogado</option>
+                    <option>Diego Valbuena</option>
+                    <option>Charlie Gomez</option>
                 </select>
             </div>
 

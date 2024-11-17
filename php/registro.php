@@ -34,11 +34,9 @@
                </div>
 
                <!-- Botón de envío del formulario -->
-               <button type="submit" class="login-button">Registrar</button>
+               <button type="submit" class="login-button">Siguiente</button>
              </form>
 
-          <!-- Botón de envío del formulario -->
-          <button type="submit" class="login-button">Siguiente</button>
         </form>
 
              <!-- Enlace para volver al inicio de sesión -->

@@ -40,11 +40,6 @@
           <button type="submit" class="login-button">Registrar</button>
         </form>
 
-        <!-- Enlace para volver al inicio de sesión -->
-        <a href="/pearsonspecterr/php/Login.php">
-          <button type="button" class="register-button">Volver al inicio de sesión</button>
-        </a>
-
           <a href="/pearsonspecterr/php/registro.php">
                       <button type="button" class="register-button">Atrás</button>
           </a>
@@ -54,41 +49,34 @@
 
   <script>
     function registrarUsuario() {
-      const usuario = {
-        correo: document.getElementById('correo').value,
-        contrasena: document.getElementById('contrasena').value,
-        confirmarContrasena: document.getElementById('confirmarContrasena').value,  // Agregado: Confirmar contraseña
-      };
+        const usuario = {
+            user: document.getElementById('correo').value,      // Cambia 'correo' a 'user'
+            pass: document.getElementById('contrasena').value   // Cambia 'contrasena' a 'pass'
+        };
 
-      // Verifica si las contraseñas coinciden
-      if (usuario.contrasena !== usuario.confirmarContrasena) {
-        alert('Las contraseñas no coinciden.');
-        return;
-      }
-
-      // Enviar los datos del usuario al backend
-      fetch('http://localhost:8080/registro/usuario', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(usuario)
-      })
-      .then(response => response.text()) // Leemos la respuesta como texto (no como JSON)
-      .then(data => {
-        if (data.includes("Usuario registrado exitosamente")) {  // Verifica si el mensaje contiene el texto de éxito
-          alert('Usuario registrado exitosamente');
-          // Redirigir al login
-          window.location.href = "/pearsonspecterr/php/Login.php";
-        } else {
-          alert('Error al registrar el usuario.');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('Hubo un error al registrar el usuario.');
-      });
+        // Enviar los datos al backend
+        fetch('http://localhost:8080/registro/usuario', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(usuario)
+        })
+        .then(response => response.text())
+        .then(data => {
+            if (data.includes("Usuario registrado exitosamente")) {
+                alert('Usuario registrado exitosamente');
+                window.location.href = "/pearsonspecterr/php/Login.php";
+            } else {
+                alert('Error al registrar el usuario.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Hubo un error al registrar el usuario.');
+        });
     }
+
   </script>
 </body>
 

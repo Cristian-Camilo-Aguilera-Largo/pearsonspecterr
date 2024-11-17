@@ -93,13 +93,13 @@ if (!isset($_SESSION['usuario'])) {
                 <thead class="table-dark">
                     <tr>
                         <th>Nombre del Caso</th>
-                        <th>Descripción</th>
                         <th>Estado</th>
                         <th>Fecha Inicio</th>
                         <th>Fecha Final</th>
                         <th>Nombre del Cliente</th>
                         <th>Archivo Subido</th>
                         <th>Subir Nuevo Archivo</th>
+                        <th>Ver Más...</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -194,7 +194,6 @@ if (!isset($_SESSION['usuario'])) {
                                 const row = document.createElement("tr");
                                 row.innerHTML = `
                                     <td>${caso.caso}</td>
-                                    <td>${caso.descripcion}</td>
                                     <td>${caso.estado}</td>
                                     <td>${caso.fecha_ic}</td>
                                     <td>${caso.fecha_ct || 'No disponible'}</td>
@@ -206,6 +205,35 @@ if (!isset($_SESSION['usuario'])) {
                                             <button type="button" class="btn btn-primary mt-2" onclick="subirArchivo(${caso.id})">Subir</button>
                                         </form>
                                     </td>
+                                    <td>
+                                                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop-${caso.id}">
+                                                                        Ver más...
+                                                                    </button>
+                                                                    <!-- Modal -->
+                                                                    <div class="modal fade" id="staticBackdrop-${caso.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-${caso.id}" aria-hidden="true">
+                                                                        <div class="modal-dialog">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel-${caso.id}">${caso.caso}</h1>
+                                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <p><strong>Descripción:</strong> ${caso.descripcion}</p>
+                                                                                    <p><strong>Cliente:</strong> ${caso.clientes.nombre}</p>
+                                                                                    <p><strong>Abogado:</strong> ${caso.abogados.id}</p>
+                                                                                    <p><strong>Estado:</strong> ${caso.estado}</p>
+                                                                                    <p><strong>Fecha de inicio:</strong> ${caso.fecha_ic}</p>
+                                                                                    <p><strong>Fecha de cierre:</strong> ${caso.fecha_ct || 'No disponible'}</p>
+
+                                                                                    <div id="fileName-${caso.id}" class="mt-3"></div>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
                                 `;
                                 tbody.appendChild(row);
                             });
